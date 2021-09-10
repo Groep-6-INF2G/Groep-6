@@ -1,0 +1,23 @@
+:root {
+  --primary-color: #142d49;
+  --primary-light-color: #59697a;
+  --primary-lighter-color: #949ea9;
+  --secondary-color: #79b9d5;
+  --secondary-light-color: #e0edf5;
+  --comp-color: #e7334c;
+}
+
+.navbar {
+  background-color: var(--secondary-color);
+  height: 10vmin;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 5px;
+  height: 4rem;
+}
