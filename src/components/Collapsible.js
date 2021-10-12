@@ -25,7 +25,7 @@ function Collapsible(props) {
         }
             >
             <div className="content" > {props.content} </div>
-            <video className="content" src={props.video} controls="controls" autoPlay="true" />
+            <video className="content" src={props.video} controls="controls" autoPlay="false" />
         </div> 
     </div>
 }
