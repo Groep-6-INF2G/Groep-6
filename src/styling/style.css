@@ -14,8 +14,12 @@
     margin-top: 0px;
 }
 
+.logo {
+    width: 10%;
+}
+
 .Syringe {
-    width: auto;
+    width: 30%;
     height: auto;
     margin-right: auto;
     margin-left: auto;
