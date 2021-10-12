@@ -1,14 +1,14 @@
 import React from "react";
+import syringe from '../../src/assets/images/syringe.png';
+import Collapsible from "../components/Collapsible";
+import "../styling/style.css"
 
 class Information extends React.Component {
     render() {
         return (
-            <div class="title">
-                <h1>
-                    Informatie
-                </h1>
-            </div>
+            <Collapsible src={syringe} content="test" classname="Syringe"/>             
         )
+       
     }
 }
 
