@@ -14,10 +14,6 @@
     margin-top: 0px;
 }
 
-.logo {
-    width: 10%;
-}
-
 .Syringe {
     width: 30%;
     height: auto;
@@ -40,6 +36,14 @@
     height: 0px;
     overflow: hidden;
     transition: height ease 0.3s;
+}
+
+.content{
+    width: 70%;
+    height: auto;
+    display: block;
+    margin-left: 10%;
+    margin-top: 10%;
 }
 
 
