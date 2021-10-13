@@ -8,6 +8,8 @@ function Collapsible(props) {
 
     //useRef is used for getting the height of the element content. 
     const parentRef = useRef();
+
+    let textDiv = <div className="content" > {props.content} </div>;
     
     return <div className="collapsible">
     <img src={props.src} alt="" className={props.classname} onClick={() => setIsOpen(!isOpen)} />
@@ -24,8 +26,9 @@ function Collapsible(props) {
             }
         }
             >
-            <div className="content" > {props.content} </div>
-            <video className="content" src={props.video} controls="controls" autoPlay="false" />
+            {props.content !== undefined ? textDiv : ""}
+            {console.log(props.content)}
+            <video className="content" src={props.video} controls="controls" autoPlay="" />
         </div> 
     </div>
 }

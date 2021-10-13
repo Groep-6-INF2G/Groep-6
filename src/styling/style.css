@@ -20,7 +20,7 @@
     margin-right: auto;
     margin-left: auto;
     display: block;
-    margin-top: 25%;
+    margin-top: 5rem;
     max-width: auto;
 }
 
@@ -38,11 +38,15 @@
     transition: height ease 0.3s;
 }
 
+.content-parent {
+    display: flex;
+    justify-content: center;
+}
+
 .content{
-    width: 70%;
-    height: auto;
+    width: 60%;
+    height: fit-content;
     display: block;
-    margin-left: 15%;
     margin-top: 10%;
 }
 
