@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 128px);
+}
+.login-container {
+    display: block;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.title h1 {
+    margin: 0;
+}
