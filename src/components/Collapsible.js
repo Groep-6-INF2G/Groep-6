@@ -10,6 +10,7 @@ function Collapsible(props) {
     const parentRef = useRef();
 
     let textDiv = <div className="content" > {props.content} </div>;
+    let picDiv = <div className="Picture" >{props.picture}</div>
     
     return <div className="collapsible">
     <img src={props.src} alt="" className={props.classname} onClick={() => setIsOpen(!isOpen)} />
@@ -28,7 +29,10 @@ function Collapsible(props) {
             >
             {props.content !== undefined ? textDiv : ""}
             {console.log(props.content)}
+            {props.picture !== undefined ? picDiv : null }
+            {console.log(props.picture)}
             <video className="content" src={props.video} controls="controls" autoPlay="" />
+            <img src={picDiv} alt=""  className="imgcontent" />
         </div> 
     </div>
 }
