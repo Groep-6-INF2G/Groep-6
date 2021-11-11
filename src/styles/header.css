@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    height: 64px;
+    width: 100%;
+    top: 0;
+    box-shadow: rgb(3 27 78 / 30%) 0px 2px 4px;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: #fff;
+}
+
+img {
+    height: 100%;
+}
+
+.header .logo {
+    height: 2rem;
+    padding-left: 1rem;
+}
+
+.header .login-button {
+    height: 2rem;
+    padding-right: 1rem;
+}
