@@ -1,10 +1,10 @@
 import React from "react";
 import syringe from '../../src/assets/images/syringe.png';
 import Collapsible from "../components/Collapsible";
-import "../styling/style.css"
 import video1 from "../../src/assets/videos/Wat gebeurt er met mijn bloed_.mp4";
 import corona from '../../src/assets/images/corona.png';
 import coronamaatregels from '../../src/assets/images/coronamaatregels.jpg';
+import '../styles/information.css';
 
 class Information extends React.Component {
     render() {
