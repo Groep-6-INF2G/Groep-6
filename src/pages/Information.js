@@ -17,8 +17,8 @@ class Information extends React.Component {
                 <h2>Voorbereiding</h2>
                 <p style={{margin: 0}} class="paragraf">Wat je moet meenemen:</p>
                 <span class="paragraf">- Aanvraagformulier<br/>- Verzekeringspas<br/>- Identiteitsbewijs </span>
-                <Collapsible src={syringe} video={video1} classname="Icons"/>     
-                <Collapsible src={corona} picture={coronamaatregels}  classname='Icons' />      
+                <Collapsible  src={syringe} video={video1} classname="Icons"/>     
+                <Collapsible  src={corona}  picture={coronamaatregels}  classname='Icons' />      
             </div>
         )
        

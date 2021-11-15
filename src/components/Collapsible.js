@@ -9,11 +9,15 @@ function Collapsible(props) {
     //useRef is used for getting the height of the element content. 
     const parentRef = useRef();
 
-    let textDiv = <div className="content" > {props.content} </div>;
-    let picDiv = <div className="Picture" >{props.picture}</div>
-    
+    //let textDiv = <div className="content" > {props.content} </div>;
+    //let picDiv = <div className="Picture" >{props.picture}</div>;
+    let picturecontent = <img  className="Picture" src={props.picture} alt=""  />
+    let videocontent = <video className="content" src={props.video} controls="controls" autoPlay="" />
     return <div className="collapsible">
+    
+
     <img src={props.src} alt="" className={props.classname} onClick={() => setIsOpen(!isOpen)} />
+    
         <div 
             className= "content-parent" 
             ref={parentRef} 
@@ -27,13 +31,13 @@ function Collapsible(props) {
             }
         }
             >
-            {props.content !== undefined ? textDiv : ""}
+            {props.content !== null ? videocontent : "" }  
             {console.log(props.content)}
-            {props.picture !== undefined ? picDiv : null }
+            {props.picture !== null  ? picturecontent : "" }
             {console.log(props.picture)}
-            <video className="content" src={props.video} controls="controls" autoPlay="" />
-            <img src={picDiv} alt=""  className="imgcontent" />
+            
         </div> 
+        
     </div>
 }
 
