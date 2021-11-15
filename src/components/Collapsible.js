@@ -33,6 +33,8 @@ function Collapsible(props) {
             >
             {props.content !== null ? videocontent : "" }  
             {console.log(props.content)}
+            {videocontent = null}
+         
             {props.picture !== null  ? picturecontent : "" }
             {console.log(props.picture)}
             
