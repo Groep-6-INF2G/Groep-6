@@ -25,7 +25,7 @@ class Information extends React.Component {
 
                 <h1>Informatie</h1>
                 <h2>Wat is het doel van bloedprikken?</h2>
-                <p>Door bloed prikken krijg je informatie over je lichaam. Met het informatie die we krijgen kunnen we kijken of je organen gezond zijn en goed functioneren. </p>
+                <p>Door bloed te prikken krijg je informatie over jouw lichaam. Met de informatie die wij krijgen kunnen we kijken of jouw organen gezond zijn en goed functioneren.</p>
                 <h2>Voorbereiding</h2>
                 <p class="paragraf">Wat je moet meenemen naar het bloedprikken:</p>
                 <ul class="paragraf">
@@ -36,7 +36,7 @@ class Information extends React.Component {
                 <h2>Verloop onderzoek</h2>
                 <p>
                     De bloedafname vindt plaats terwijl u zit.
-                     Om één of meerdere buisjes bloed af te kunnen nemen prikt de medewerker bloedafname aan de binnenkant van uw elleboog in een ader. 
+                     Er word één of meerdere buisjes bloed afgenomen door een medewerker die een prik aan u geeft in de binnenkant van uw elleboog,
                      Hiervoor krijgt u een zogenaamde stuwband om uw arm. 
                      Tijdens de bloedafname geeft de medewerker aanwijzingen om het onderzoek zo snel en goed mogelijk te laten verlopen. 
                      De bloedafname duurt in de meeste gevallen niet langer dan vijf minuten. 
@@ -45,8 +45,8 @@ class Information extends React.Component {
                 <h2>Doorlooptijden en uitslag</h2>
                 <p>    
                     De uitslag van het bloedonderzoek is meestal binnen enkele dagen bekend. 
-                    We sturen deze direct door naar uw arts of verloskundige. 
-                    Hij/zij bespreekt de uitslag met u.
+                    We sturen deze direct door naar uw arts en/of verloskundige. 
+                    Hij/zij zal de uitslag hierna met u bespreken.
                 </p>
 
 
