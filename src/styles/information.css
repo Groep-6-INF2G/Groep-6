@@ -82,30 +82,26 @@ animation: reveal 7s infinite;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    text-align: center;
 }
-
-.title {
-    font-size: 12vw;
+p {
+    margin:0px;
+}
+h1 {
+    font-size: 9vw;
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
     color: #142d49;
     display: flex;
     justify-content: center;
-}
-
-.title>h1 {
-    display: block;
-    font-size: 1.17em;
     margin: 10px;
-    font-weight: bold;
 }
 h2 {
-    font-size: 1.17em;
+    font-size: 6vw;
+    color: #142d49;
     display: block;
-    margin: 5px;
-    text-align: center;
-    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
 }
 b {
     margin: 0;
@@ -125,7 +121,9 @@ b {
     line-height: 1.5;
     color: #212529;
 }
-
+ul.paragraf{
+    padding-left: 22.5px;
+}
 .content {
     width: 100%;
     height: auto;

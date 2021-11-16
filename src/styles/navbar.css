@@ -1,6 +1,6 @@
 .navbar {
     font-family: 'Open Sans', sans-serif;
-    position: sticky;
+    position: fixed;
     left: 0;
     bottom: 0;
     box-shadow: rgb(3 27 78 / 30%) 0px -2px 4px;
@@ -10,6 +10,7 @@
     background-color: #142d49;
 }
 nav ul {
+    margin-top: 8px;
     padding: 0 13vw;
     display: flex;
     justify-content: space-between;
@@ -21,9 +22,6 @@ nav a img {
     width: 3rem;
     height: auto;
     filter: invert();
-    position: absolute;
-    bottom: 10%;
-
     
 }
 
