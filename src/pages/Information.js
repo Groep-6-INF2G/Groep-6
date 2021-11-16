@@ -9,11 +9,23 @@ import '../styles/information.css';
 class Information extends React.Component {
     render() {
         return (
+            
             <div class="container">
-                <div class="title">
-                    <h1>Information</h1>
-                </div>
-                <p class="paragraf">Let op: In verband met het Coronavirus werken we voor bloedafname met geplande afspraken. Dit is om te voorkomen dat er te veel patiënten tegelijk in de wachtruimte zijn. U kunt hier online een afspraak maken voor bloedafname.</p>
+                <div className="grid">
+                    <div className="grid1">
+                        <div className="textAnimation">
+                            <p class="paragraf">Let op: </p>
+                        </div>
+                        <div className="textAnimation">
+                            <p class="paragraf"><span>In verband met het Coronavirus werken we voor bloedafname met geplande afspraken. Dit is om te voorkomen dat er te veel patiënten tegelijk in de wachtruimte zijn. U kunt hier online een afspraak maken voor bloedafname.</span>
+                            </p>
+                        </div>
+                    </div>
+            </div>
+
+
+
+
                 <h2>Wat is het doel van bloedprikken?</h2>
                 <p>Door bloed prikken krijg je informatie over je lichaam. Met het informatie die we krijgen kunnen we kijken of je organen gezond zijn en goed functioneren. </p>
                 <h2>Voorbereiding</h2>
@@ -35,8 +47,10 @@ class Information extends React.Component {
                     We sturen deze direct door naar uw arts of verloskundige. 
                     Hij/zij bespreekt de uitslag met u.
                 </p>
-                <Collapsible  src={syringe} video={video1} classname="Icons"/>     
-                
+
+
+
+                <Collapsible  src={syringe} video={video1} classname="Icons"/>
                 <Collapsible  src={corona}  picture={coronamaatregels}  classname='Icons' />      
             </div>
         )
