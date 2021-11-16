@@ -25,11 +25,9 @@ export default class Login extends Component {
                     </div>
                 <div class="input-fields">
                     <form onSubmit={this.handleSubmit}>
-                        <p>E-mailadres:</p>
-                        <input type="email" name="email" required onChange={this.handleChange}/>
-                        <p>Wachtwoord:</p>
-                        <input type="password" name="password" required onChange={this.handleChange}/>
-                        <button onSubmit={this.handleSubmit}>Inloggen</button>
+                        <input type="email" name="email" placeholder="Emailadres" required onChange={this.handleChange} />
+                        <input type="password" name="password" placeholder="Wachtwoord" required onChange={this.handleChange}/>
+                        <button onSubmit={this.handleSubmit}>Log in</button>
                     </form>
                 </div>
             </div>

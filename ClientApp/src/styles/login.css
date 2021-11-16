@@ -2,7 +2,7 @@
     display: block;
     margin: 0 auto;
     width: fit-content;
-    transform: translateY(50%);
+    transform: translateY(70%);
 }
 
 .title {
@@ -18,11 +18,25 @@
     width: 220px;
   	display: block;
 }
-.input-fields form p {
-    margin-bottom: 0;
+.input-fields form input {
+    width: 40vw;
+    height: 2rem;
+    margin: 10px;
+    border: none;
+    border-bottom: 1px solid;
 }
+
+.input-fields form {
+    text-align: center;
+}
+
 .input-fields form button {
-    margin-top: 10px;
+    margin-top: 30px;
     width: 10rem;
     height: 3rem;
+    border: none;
+    background-color: #e7334c;
+    color: white;
+    font-size: 20px;
+    border-radius: 30px;
 }
