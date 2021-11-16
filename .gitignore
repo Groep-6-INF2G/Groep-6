@@ -230,3 +230,25 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# dependencies
+/ClientApp/node_modules
+/ClientApp/.pnp
+/ClientApp/.pnp.js
+
+# testing
+/ClientApp/coverage
+
+# production
+/ClientApp/build
+
+# misc
+/ClientApp/.DS_Store
+/ClientApp/.env.local
+/ClientApp/.env.development.local
+/ClientApp/.env.test.local
+/ClientApp/.env.production.local
+
+/ClientApp/npm-debug.log*
+/ClientApp/yarn-debug.log*
+/ClientApp/yarn-error.log*
