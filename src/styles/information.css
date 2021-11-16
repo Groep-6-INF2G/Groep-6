@@ -87,7 +87,7 @@ p {
     margin:0px;
 }
 h1 {
-    font-size: 9vw;
+    font-size: 2.5rem;
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
     color: #142d49;
@@ -96,7 +96,7 @@ h1 {
     margin: 10px;
 }
 h2 {
-    font-size: 6vw;
+    font-size: 1.5rem;
     color: #142d49;
     display: block;
     margin-top: 5px;
