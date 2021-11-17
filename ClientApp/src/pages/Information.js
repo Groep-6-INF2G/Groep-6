@@ -23,7 +23,7 @@ class Information extends React.Component {
                     </div>
             </div> */}
 
-                <h1>Informatie</h1>
+                {/*<h1>Informatie</h1>
                 <h2>Wat is het doel van bloedprikken?</h2>
                 <p>Door bloed te prikken krijg je informatie over jouw lichaam. Met de informatie die wij krijgen kunnen we kijken of jouw organen gezond zijn en goed functioneren.</p>
                 <h2>Voorbereiding</h2>
@@ -47,12 +47,12 @@ class Information extends React.Component {
                     De uitslag van het bloedonderzoek is meestal binnen enkele dagen bekend. 
                     We sturen deze direct door naar uw arts en/of verloskundige. 
                     Hij/zij zal de uitslag hierna met u bespreken.
-                </p>
+                </p>*/}
 
 
 
-                <Collapsible  src={syringe} video={video1} classname="Icons"/>
-                <Collapsible  src={corona}  picture={coronamaatregels}  classname='Icons' />      
+                <Collapsible  src={syringe} video={video1} classname="Icons" title="Bloed prikken"/>
+                <Collapsible  src={corona}  picture={coronamaatregels}  classname='Icons' title="Mondkapjes plicht"/>      
             </div>
         )
        
