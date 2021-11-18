@@ -2,17 +2,38 @@
 
 import React, { useState, useRef } from "react";
 
+
+function pictureContent(props) {
+    if (props == null)
+        return "";
+
+    return (
+        <img className="Picture" src={props} alt="" />
+    );
+}
+
+
+function videoContent(props) {
+    if (props == null)
+        return "";
+
+    return (   
+     <video className="content" src={props} controls="controls" autoPlay="" />
+    );
+}
+
 function Collapsible(props) {
     //bool to check if the onclickevent happened or not
     const [isOpen, setIsOpen] = useState(false);
 
     //useRef is used for getting the height of the element content. 
     const parentRef = useRef();
+    const picHolder = props.pic;
+    const vidHolder = props.vid;
 
-    //let textDiv = <div className="content" > {props.content} </div>;
-    //let picDiv = <div className="Picture" >{props.picture}</div>;
-    let picturecontent = <img  className="Picture" src={props.picture} alt=""  />
-    let videocontent = <video className="content" src={props.video} controls="controls" autoPlay="" />
+    let picContent = pictureContent(picHolder)
+    let vidContent = videoContent(vidHolder)
+
     return <div className="collapsible">
     
 
@@ -30,13 +51,13 @@ function Collapsible(props) {
                 height: "0px",
             }
         }
-            >
-            {props.content !== null ? videocontent : "" }  
-            {console.log(props.content)}
-            {videocontent = null}
-         
-            {props.picture !== null  ? picturecontent : "" }
-            {console.log(props.picture)}
+        >
+            {videoContent.props !== null || videoContent.props !== undefined ? vidContent : ""}
+            {console.log(vidHolder)}
+
+
+            {picHolder !== null ? picContent : ""}
+            {console.log(picContent)}
             
         </div> 
         

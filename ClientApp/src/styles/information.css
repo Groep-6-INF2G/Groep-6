@@ -15,61 +15,6 @@
     font-size: 15px;
 }
 
-.grid{
-    grid-template-columns: repeat(2, 1fr);
-    background-color: rgb(0,0,0, 0.02);
-    margin: 0;
-    padding: 0;
-    height: auto;
-}
-
-
-
-    
-
-.textAnimation{
-    display:inline-block;
-    overflow:hidden;
-    white-space:nowrap;
-}
-
-.textAnimation:first-of-type {  
-animation: showup 7s infinite;
-}
-
-.textAnimation:last-of-type {
-width:0px;
-animation: reveal 7s infinite;
-}
-
-.textAnimation :last-of-type span {
-    margin-left:-355px;
-    animation: slidein 7s infinite;
-}
-
-
-@keyframes showup {
-0% {opacity:0;}
-20% {opacity:1;}
-80% {opacity:1;}
-100% {opacity:0;}
-}
-
-@keyframes slidein {
-0% { margin-left:-800px; }
-20% { margin-left:-800px; }
-35% { margin-left:0px; }
-100% { margin-left:0px; }
-}
-
-@keyframes reveal {
-0% {opacity:0;width:0px;}
-20% {opacity:1;width:0px;}
-30% {width:auto;}
-80% {opacity:1;}
-100% {opacity:0;width:auto;}
-}
-
 
 .collapsible .content-parent{
     height: 0px;
@@ -125,6 +70,11 @@ ul.paragraf{
     padding-left: 22.5px;
 }
 .content {
+    width: 100%;
+    height: auto;
+}
+
+.Picture {
     width: 100%;
     height: auto;
 }

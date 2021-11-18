@@ -11,8 +11,9 @@ class Information extends React.Component {
         return (
             
             <div class="container">
-                <Collapsible  src={syringe} video={video1} classname="Icons"/>
-                <Collapsible  src={corona}  picture={coronamaatregels}  classname='Icons' />      
+                <Collapsible src={syringe} vid={video1} classname="Icons" />
+
+                <Collapsible  src={corona}  pic={coronamaatregels}  classname='Icons' />      
             </div>
         )
        
