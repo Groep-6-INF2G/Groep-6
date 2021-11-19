@@ -3,12 +3,15 @@
 import React, { useState, useRef } from "react";
 
 
-function pictureContent(props) {
+function pictureContent(props, { multipleImages }, {list}) {
     if (props == null)
         return "";
-
+    else if (multipleImages)
+        return  list.map((index) => (<img className="Picture" src={index.image} alt='' />)) 
+        
     return (
         <img className="Picture" src={props} alt="" />
+        
     );
 }
 
@@ -30,13 +33,16 @@ function Collapsible(props) {
     const parentRef = useRef();
     const picHolder = props.pic;
     const vidHolder = props.vid;
+    const multipleImages = props.multipleImages;
+    const list = props.list;
 
-    let picContent = pictureContent(picHolder)
+
+    let picContent = pictureContent(picHolder, { multipleImages }, {list})
     let vidContent = videoContent(vidHolder)
 
     return <div className="collapsible">
     
-
+    
     <img src={props.src} alt="" className={props.classname} onClick={() => setIsOpen(!isOpen)} />
     
         <div 

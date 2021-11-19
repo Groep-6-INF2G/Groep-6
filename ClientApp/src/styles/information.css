@@ -75,7 +75,7 @@ ul.paragraf{
 }
 
 .Picture {
-    width: 100%;
+    max-width: auto;
     height: auto;
 }
 
