@@ -7,11 +7,11 @@ import login from '../assets/images/login.png'
 class Header extends React.Component {
     render () {
         return (
-            <div class="header">
-                <div class="logo">
+            <div className="header">
+                <div className="logo">
                     <Link to="/"><img src={logo} alt="Startpagina"/></Link>
                 </div>
-                <div class="login-button">
+                <div className="login-button">
                     <Link to="/Inloggen"><img src={login} alt="Inloggen"/></Link>
                 </div>
             </div>

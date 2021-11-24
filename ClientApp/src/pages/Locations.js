@@ -4,7 +4,7 @@ import '../styles/information.css';
 class Locations extends React.Component {
     render() {
         return (
-            <div class= "container">
+            <div className="container">
                 <h1>
                     Locaties
                 </h1>

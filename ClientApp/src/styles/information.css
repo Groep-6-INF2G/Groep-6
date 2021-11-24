@@ -17,9 +17,12 @@
 
 
 .collapsible .content-parent{
-    height: 0px;
+    margin-top: 10px;
     overflow: hidden;
-    transition: height ease 0.3s;
+}
+
+#dropdown {
+    transition: transform linear 0.2s;
 }
 .container {
     max-width: 100%;

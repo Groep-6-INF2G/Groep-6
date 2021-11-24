@@ -19,11 +19,11 @@ export default class Login extends Component {
     
     render() {
         return (
-            <div class="login-container">
-                    <div class="title">
+            <div className="login-container">
+                    <div className="title">
                         <h1>Inloggen</h1>
                     </div>
-                <div class="input-fields">
+                <div className="input-fields">
                     <form onSubmit={this.handleSubmit}>
                         <input type="email" name="email" placeholder="Emailadres" required onChange={this.handleChange} />
                         <input type="password" name="password" placeholder="Wachtwoord" required onChange={this.handleChange}/>
