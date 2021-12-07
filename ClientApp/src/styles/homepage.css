@@ -1,0 +1,38 @@
+﻿.containerHome {
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+    background-image: linear-gradient( rgba(0,0,0, 0.50), rgba(0,0,0, 0.50)), url('../assets/images/homepageimage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 255px;
+    background-color: white;
+    background-position: center;
+}
+.containerHome .text {
+    padding-top: 40px;
+    width: 75%;
+    color: white;
+    padding-left: 15px;
+}
+
+.containerHome .text h1 {
+    color: white;
+    font-size: 1.75rem;
+    margin: 0;
+}
+
+.inner-container {
+    padding: 15px;
+}
+
+.footerImage {
+    max-width:200px;
+    height:auto;
+}
+
+.social-wrapper{
+    padding-top: 0.5rem;
+}
+.social-wrapper a{
+    padding-left: 1rem;
+}
