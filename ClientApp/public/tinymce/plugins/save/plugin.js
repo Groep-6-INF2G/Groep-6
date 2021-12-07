@@ -52,8 +52,6 @@
           }
         }
         editor.nodeChanged();
-      } else {
-        displayErrorMessage(editor, 'Error: No form element found.');
       }
     };
     var cancel = function (editor) {
