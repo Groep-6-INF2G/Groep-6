@@ -20,12 +20,10 @@ export default class Login extends Component {
     render() {
         return (
             <div class="login-container">
-                    <div class="title">
-                        <h1>Inloggen</h1>
-                    </div>
+                <h1 id="title">Inloggen</h1>
                 <div class="input-fields">
                     <form onSubmit={this.handleSubmit}>
-                        <input type="email" name="email" placeholder="Emailadres" required onChange={this.handleChange} />
+                        <input type="email" name="email" placeholder="E-mailadres" required onChange={this.handleChange} />
                         <input type="password" name="password" placeholder="Wachtwoord" required onChange={this.handleChange}/>
                         <button onSubmit={this.handleSubmit}>Log in</button>
                     </form>
