@@ -27,7 +27,7 @@ export default class Login extends Component {
         })
         if (response.status == 200) {
             localStorage.setItem('loggedIn', 'true')
-            window.location.pathname = "/Ingelogd"
+            window.location.pathname = "/HomeEditor"
         }
     }
     
