@@ -16,7 +16,7 @@ namespace Git_clone
         {
             CreateHostBuilder(args).Build().Run();
             var start = new NPGSQL();
-            start.selectAllSQL();
+            start.selectUser("admin@gmail.com", "pass123");
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

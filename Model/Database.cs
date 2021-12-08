@@ -13,7 +13,26 @@ namespace Database
             databaseConnection = new NpgsqlConnection("Host=145.24.222.54; Username=postgres;Password=team6;Database=postgres;Port=8011;IncludeErrorDetail=true");
         }
 
-        public void selectAllSQL()
+
+        public string[] selectUser(string email, string password)
+        {
+            using (var conn = databaseConnection)
+                conn.Open();
+            var sql =$"SELECT email, password from users where email = {email} and password = {password}";
+
+            using var cmd = new NpgsqlCommand(sql, connection);
+            using NpgsqlDataReader rdr = cmd.ExecuteReader();
+            string[] values =  new string[rdr.Length];
+            while (rdr.Read())
+            {
+                values[0] = rdr.GetString(0);
+                values[1] = rdr.GetString(1);
+                Console.WriteLine("{0} {1} }", rdr.GetString(0), rdr.GetString(1));
+            }
+        }
+
+
+        public void selectAllLocstions()
         {
 
             using var connection = databaseConnection;
