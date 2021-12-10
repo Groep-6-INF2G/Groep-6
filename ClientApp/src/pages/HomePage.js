@@ -3,7 +3,7 @@ import '../styles/information.css';
 class HomePage extends React.Component {
     render() {
         return (
-            <div class= "container">
+            <div className="container">
                 <h1>
                     HomePage
                 </h1>

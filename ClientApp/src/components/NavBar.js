@@ -8,7 +8,7 @@ import map from '../assets/images/goal.png'
 class NavBar extends React.Component {
     render () {
         return (
-            <div class="navbar">
+            <div className="navbar">
                 <nav>
                     <ul>
                         <li><Link to="/"><img src={home} alt="Startpagina"/></Link></li>

@@ -1,5 +1,7 @@
 import React from "react";
 
+import React from "react";
+
 import dropdown from '../assets/images/dropdown.png'
 
 
@@ -22,7 +24,7 @@ class Collapsible extends React.Component {
     render() {
         return <div className="collapsible">
 
-            <div className="clickable" onClick={this.setIsOpen} >
+            <div className="clickable" onClick={this.setIsOpen}>
                 {this.props.src !== undefined && <img src={this.props.src} alt="" className={this.props.className} />}
                 <div style={{ display: "inline-flex", alignItems: "center" }}>
                     <h2>{this.props.title}</h2>
