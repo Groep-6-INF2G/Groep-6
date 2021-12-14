@@ -1,57 +1,77 @@
+
 import React from "react";
 import dropdown from '../assets/images/dropdown.png'
 
 
-class Collapsible extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { isOpen: false, height: 0 };
-        this.parentRef = React.createRef();
-        this.childRef = React.createRef();
-
-        this.setIsOpen = this.setIsOpen.bind(this);
-    }
-    
+function Collapsible(props) {
     //bool to check if the onclickevent happened or not
-    setIsOpen(e) {
-        this.setState(prevState => ({ isOpen: !prevState.isOpen }));
-        e.stopPropagation();
-    }
+    const [isOpen, setIsOpen] = useState(false);
 
-    render() {
-        return <div className="collapsible">
+    //useRef is used for getting the height of the element content. 
+    const parentRef = useRef();
 
-            <div className="clickable" onClick={this.setIsOpen}>
-                {this.props.src !== undefined && <img src={this.props.src} alt="" className={this.props.className} />}
-                <div style={{ display: "inline-flex", alignItems: "center" }}>
-                    <h2>{this.props.title}</h2>
-                    {this.props.src === undefined && <img src={dropdown} id="dropdown" alt="" width="10" height="10" style={this.state.isOpen ? { marginLeft: "10px", transform: 'rotate(180deg)' } : { marginLeft: "10px" }} />}
-                </div>
-            </div>
 
-            <div
-                className="content-parent"
-                ref={this.parentRef}
-                style={this.state.isOpen ?
-                    {
-                        //The current height of the content when the element is open
-                        maxHeight: "4000px",
-                        transition: 'max-height cubic-bezier(0.4, 0, 1, 1) 1s',
-                        
-                    }
-                    :
-                    {
-                        //Else height is 0px
-                        maxHeight: "0px",
-                        transition: 'max-height 1s cubic-bezier(0, 0.74, 0.08, 1.02) 0s',
-                    }
+    //let textDiv = <div className="content" > {props.content} </div>;
+    //let picDiv = <div className="Picture" >{props.picture}</div>;
+    let picturecontent = <img  className="Picture" src={props.picture} alt="" />
+    let videocontent = <video className="content" src={props.video} controls="controls" autoPlay="" /> 
+    return <div className="collapsible">
+
+    <img src={props.src} alt="" className={props.classname} onClick={() => setIsOpen(!isOpen)} />
+    
+        <div 
+            className= "content-parent" 
+            ref={parentRef} 
+            style={isOpen ? {
+                //The current height of the content when the element is open
+                height: parentRef.current.scrollHeight + "px",
                 }
+                :
+                {
+                //Else height is 0px
+                height: "0px",
+                }
+            }   
             >
-                {this.props.children}
-            </div>
-
+            {props.content !== null ? videocontent : "" }  
+            {console.log(props.content)}
+            {videocontent = null}
+         
+            {props.picture !== null  ? picturecontent : "" }
+            {console.log(props.picture)}
+            
         </div>
-    }
+        <h2>{props.title}</h2>
+        {props.title == "Bloed prikken" && isOpen ?
+            <div>
+                <h2>Wat is het doel van bloedprikken?</h2>
+                <p>Door bloed te prikken krijg je informatie over jouw lichaam. Met de informatie die wij krijgen kunnen we kijken of jouw organen gezond zijn en goed functioneren.</p>
+                <h2>Voorbereiding</h2>
+                <p class="paragraf">Wat je moet meenemen naar het bloedprikken:</p>
+                <ul class="paragraf">
+                    <li>Aanvraagformulier</li>
+                    <li>Verzekeringspas</li>
+                    <li>Identiteitsbewijs</li>
+                </ul>
+                <h2>Verloop onderzoek</h2>
+                <p>
+                    De bloedafname vindt plaats terwijl u zit.
+                    Er word een of meerdere buisjes bloed afgenomen door een medewerker die een prik aan u geeft in de binnenkant van uw elleboog,
+                    Hiervoor krijgt u een zogenaamde stuwband om uw arm.
+                    Tijdens de bloedafname geeft de medewerker aanwijzingen om het onderzoek zo snel en goed mogelijk te laten verlopen.
+                    De bloedafname duurt in de meeste gevallen niet langer dan vijf minuten.
+                    Mogelijk moet u wel even in de wachtkamer zitten voordat u aan de beurt bent.
+                </p>
+                <h2>Doorlooptijden en uitslag</h2>
+                <p>
+                    De uitslag van het bloedonderzoek is meestal binnen enkele dagen bekend.
+                    We sturen deze direct door naar uw arts en/of verloskundige.
+                    Hij/zij zal de uitslag hierna met u bespreken.
+                </p>
+            </div> : null
+        }
+        
+    </div>
 }
 
 export default Collapsible;
