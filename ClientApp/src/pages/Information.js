@@ -5,54 +5,85 @@ import video1 from "../../src/assets/videos/Wat gebeurt er met mijn bloed_.mp4";
 import corona from '../../src/assets/images/corona.png';
 import coronamaatregels from '../../src/assets/images/coronamaatregels.jpg';
 import '../styles/information.css';
+import meenemen from '../../src/assets/images/meenemen.png';
+import passport from '../../src/assets/images/passport.png';
+import goal from '../../src/assets/images/goal.png';
+import info from '../../src/assets/images/info.png';
+
 
 class Information extends React.Component {
     render() {
         return (
-            
-            <div class="container">
-                {/* <div className="grid">
-                    <div className="grid1">
-                        <div className="textAnimation">
-                            <p class="paragraf">Let op: </p>
-                        </div>
-                        <div className="textAnimation">
-                            <p class="paragraf"><span>In verband met het Coronavirus werken we voor bloedafname met geplande afspraken. Dit is om te voorkomen dat er te veel patiënten tegelijk in de wachtruimte zijn. U kunt hier online een afspraak maken voor bloedafname.</span>
-                            </p>
-                        </div>
+            <div className="container">
+
+                <Collapsible src={syringe} className="Icons" title="Bloed prikken">
+                    <div>
+
+                        <Collapsible title="Wat is het doel van bloedprikken?">
+                            <div>
+                                <p>Door bloed te prikken krijg je informatie over jouw lichaam. Met de informatie die wij krijgen kunnen we kijken of jouw organen gezond zijn en goed functioneren.</p>
+                            </div>
+                        </Collapsible>
+
+                        <Collapsible title="Voorbereiding">
+                            <div>
+                                <p className="paragraf">Wat je moet meenemen naar het bloedprikken:</p>
+                                <ul className="paragraf">
+                                    <li>Aanvraagformulier</li>
+                                    <li>Verzekeringspas</li>
+                                    <li>Identiteitsbewijs</li>
+                                </ul>
+                            </div>
+                        </Collapsible>
+
+                        <Collapsible title="Verloop onderzoek">
+                            <div>
+                                <p>
+                                    De bloedafname vindt plaats terwijl u zit.<br/>
+                                    Er word een of meerdere buisjes bloed afgenomen door een medewerker die een prik aan u geeft in de binnenkant van uw elleboog,<br />
+                                    Hiervoor krijgt u een zogenaamde stuwband om uw arm.<br />
+                                    Tijdens de bloedafname geeft de medewerker aanwijzingen om het onderzoek zo snel en goed mogelijk te laten verlopen.<br />
+                                    De bloedafname duurt in de meeste gevallen niet langer dan vijf minuten.<br />
+                                    Mogelijk moet u wel even in de wachtkamer zitten voordat u aan de beurt bent.
+                                </p>
+                            </div>
+                        </Collapsible>
+
+                        <Collapsible title="Doorlooptijden en uitslag">
+                            <div>
+                                <p>
+                                    De uitslag van het bloedonderzoek is meestal binnen enkele dagen bekend.<br />
+                                    We sturen deze direct door naar uw arts en/of verloskundige.<br />
+                                    Hij/zij zal de uitslag hierna met u bespreken.
+                                </p>
+                            </div>
+                        </Collapsible>
+
+                        <Collapsible title="Video">
+                            {<video src={video1} width="1024" height="576" controls />}
+                        </Collapsible>
+
                     </div>
-            </div> */}
+                </Collapsible>
 
-                {/*<h1>Informatie</h1>
-                <h2>Wat is het doel van bloedprikken?</h2>
-                <p>Door bloed te prikken krijg je informatie over jouw lichaam. Met de informatie die wij krijgen kunnen we kijken of jouw organen gezond zijn en goed functioneren.</p>
-                <h2>Voorbereiding</h2>
-                <p class="paragraf">Wat je moet meenemen naar het bloedprikken:</p>
-                <ul class="paragraf">
-                    <li>Aanvraagformulier</li>
-                    <li>Verzekeringspas</li>
-                    <li>Identiteitsbewijs</li>
-                </ul>
-                <h2>Verloop onderzoek</h2>
-                <p>
-                    De bloedafname vindt plaats terwijl u zit.
-                     Er word één of meerdere buisjes bloed afgenomen door een medewerker die een prik aan u geeft in de binnenkant van uw elleboog,
-                     Hiervoor krijgt u een zogenaamde stuwband om uw arm. 
-                     Tijdens de bloedafname geeft de medewerker aanwijzingen om het onderzoek zo snel en goed mogelijk te laten verlopen. 
-                     De bloedafname duurt in de meeste gevallen niet langer dan vijf minuten. 
-                     Mogelijk moet u wel even in de wachtkamer zitten voordat u aan de beurt bent.
-                </p>
-                <h2>Doorlooptijden en uitslag</h2>
-                <p>    
-                    De uitslag van het bloedonderzoek is meestal binnen enkele dagen bekend. 
-                    We sturen deze direct door naar uw arts en/of verloskundige. 
-                    Hij/zij zal de uitslag hierna met u bespreken.
-                </p>*/}
+                <Collapsible src={meenemen} className="Icons">
+                    <div>
+                        <Collapsible src={passport}>
+                            <div>
+                                <img src={syringe} alt="" width="400" height="300" />
+                            </div>
+                        </Collapsible>
+                        <img src={goal} alt="" width="400" height="300" />
+                        <img src={info} alt="" width="400" height="300" />
+                    </div>
+                </Collapsible>
 
+                <Collapsible src={corona} className="Icons">
+                    <div>
+                        <img src={coronamaatregels} alt="corona maatregels" width="400" height="300" />
+                    </div>
+                </Collapsible>
 
-
-                <Collapsible  src={syringe} video={video1} classname="Icons" title="Bloed prikken"/>
-                <Collapsible  src={corona}  picture={coronamaatregels}  classname='Icons' title="Mondkapjes plicht"/>      
             </div>
         )
        
