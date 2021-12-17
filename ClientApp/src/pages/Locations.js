@@ -1,4 +1,5 @@
 import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import '../styles/locations.css';
 
 class Locations extends React.Component {
@@ -24,7 +25,7 @@ class Locations extends React.Component {
     render() {
         return (
             <div class="location-container">
-                <div class ="search-box">
+                <div class="search-box">
                     <p class="title">Zoek dichtsbijzijnde locatie</p>
                     <div class="search-field">
                         <form onSubmit={this.handleSubmit}>
@@ -33,6 +34,17 @@ class Locations extends React.Component {
                         </form>
                     </div>
                 </div>
+                <MapContainer center={[52.2288689, 5.3214503]} zoom={7} scrollWheelZoom={true}>
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={[51.505, -0.09]}>
+                        <Popup>
+                            A pretty CSS3 popup. <br /> Easily customizable.
+                        </Popup>
+                    </Marker>
+                </MapContainer>
             </div>
         )
     }
