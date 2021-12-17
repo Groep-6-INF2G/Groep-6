@@ -1,7 +1,10 @@
 ﻿using Git_clone.Models;
+using Git_clone.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using System.Collections;
+using Microsoft.EntityFrameworkCore;
 
 namespace Git_clone.Controllers
 {
@@ -9,17 +12,25 @@ namespace Git_clone.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+        DbSet<user> _userlist;
+
+        public void receiveData(DbSet<user> userList)
+        {
+            _userlist = userList;
+        }
+
+
+      
         [HttpPost]
         public ActionResult CheckLogin(LoginInfo info)
         {
-            if(info.Password == null && info.Email == null)
+            if(info.Password != null && info.Email != null && _userlist != null) 
             {
-                return BadRequest(); 
-            }
-
-            if(info.Password == "abc12345" && info.Email == "abc@abc.com")
-            {
-                return StatusCode(StatusCodes.Status200OK);
+                var list = _userlist.To;
+                if (list.Contains(info.Password) && list.Contains(info.Email))
+                {
+                    return Ok();
+                }
             }
             return BadRequest();
         }

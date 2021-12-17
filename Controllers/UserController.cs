@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Git_clone.Models;
 
+
 namespace Git_clone.Controllers
 {
     [Route("api/[controller]")]
@@ -20,9 +21,14 @@ namespace Git_clone.Controllers
 
         public IEnumerable<user> Get()
         {
-            return _databaseContext.Users;
+
+             return _databaseContext.Users;
         }
 
+        public ActionResult passData()
+        {
+            return RedirectToAction("CheckLogin", "LoginController", new {userList = _databaseContext.Users});
+        }
 
-    }
+   }
 }
