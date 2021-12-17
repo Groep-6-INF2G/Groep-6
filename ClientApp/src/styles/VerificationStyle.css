@@ -1,0 +1,87 @@
+.containerVerify {
+    font-family: "Open Sans", sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 255px;
+    background-color: white;
+    background-position: center;
+}
+
+    .containerVerify .text {
+        padding-top: 40px;
+        color: #142d49;
+        padding-left: 15px;
+    }
+        .containerVerify .text .input-fields {
+            padding: 10px 0;
+            display: block;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+            .containerVerify .text .input-fields form {
+                max-width: 400px;
+            }
+
+                .containerVerify .text .input-fields form input {
+                    width: 100%;
+                    height: 2rem;
+                    margin: 30px 0;
+                    border: none;
+                    border-bottom: 2px solid #142d49;
+                    font-size: 30px;
+                    text-align: center;
+                }
+
+            .containerVerify .text .input-fields form {
+                text-align: center;
+            }
+
+                .containerVerify .text .input-fields form button {
+                    margin-top: 30px;
+                    width: 10rem;
+                    height: 3rem;
+                    border: none;
+                    background-color: #e7334c;
+                    color: white;
+                    font-size: 20px;
+                    border-radius: 30px;
+                    transition: 0.5s;
+                    text-align: center;
+                }
+
+                    .containerVerify .text .input-fields form button:hover {
+                        background-color: #ac3243;
+                    }
+
+        .containerVerify .text h1 {
+            color: #142d49;
+            font-size: 2.25rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        .containerVerify .text p {
+            color: #142d49;
+            font-size: 1rem;
+            margin: 0;
+            text-align: center;
+        }
+
+.inner-container {
+    padding: 15px;
+}
+
+.footerImage {
+    max-width: 200px;
+    height: auto;
+}
+
+.social-wrapper {
+    padding-top: 0.5rem;
+}
+
+    .social-wrapper a {
+        padding-left: 1rem;
+    }
