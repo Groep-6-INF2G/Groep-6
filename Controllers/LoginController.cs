@@ -11,28 +11,26 @@ namespace Git_clone.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
-    {
-        DbSet<user> _userlist;
-
-        public void receiveData(DbSet<user> userList)
-        {
-            _userlist = userList;
-        }
-
-
-      
-        [HttpPost]
+    {    
+ 
         public ActionResult CheckLogin(LoginInfo info)
         {
-            if(info.Password != null && info.Email != null && _userlist != null) 
+            if(info.Password != null && info.Email != null) 
             {
-                var list = _userlist.To;
-                if (list.Contains(info.Password) && list.Contains(info.Email))
-                {
-                    return Ok();
-                }
+                HttpContext.Items.Add("login", info);
+               //return RedirectToAction("checkData", "UserController", new { login = info });
             }
             return BadRequest();
+        }
+
+        [HttpPost]
+        public ActionResult fetchData(bool result)
+        {
+            if (result == true)
+            {
+                return Ok();
+            }
+            return NotFound();
         }
 
     }

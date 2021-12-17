@@ -22,7 +22,7 @@ export default class Login extends Component {
         e.preventDefault();
         const response = await fetch("api/login", {
             method: "POST",
-            headers: { 'Accept':'apllication/json','Content-Type': 'application/json' },
+            headers: { 'Accept':'application/json','Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
         })
         if (response.status == 200) {

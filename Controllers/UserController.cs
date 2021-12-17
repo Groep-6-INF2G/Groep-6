@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Git_clone.Models;
+using System.Linq;
+using System;
 
 
 namespace Git_clone.Controllers
@@ -12,6 +14,8 @@ namespace Git_clone.Controllers
     {
         private dataBaseContext _databaseContext;
 
+        public LoginInfo log;
+
         public UserController(dataBaseContext databaseContext)
         {
             _databaseContext = databaseContext;
@@ -19,16 +23,26 @@ namespace Git_clone.Controllers
 
         [HttpGet("")] // => "/" 
 
-        public IEnumerable<user> Get()
-        {
 
-             return _databaseContext.Users;
+        public ActionResult checkData()
+        {
+                       
+            var login = HttpContext.Items["login"] as LoginInfo;
+
+            //var query = _databaseContext.Users.AsQueryable().Where(x => x.email == login.Email && x.password == login.Password).ToList();
+
+
+            if (login != null)
+            {
+                return RedirectToAction("fetchData", "LoginController", new {result = true} );
+            }
+            return RedirectToAction("fetchData", "LoginController", new { result = false });
         }
 
-        public ActionResult passData()
+        public LoginInfo ShowResult()
         {
-            return RedirectToAction("CheckLogin", "LoginController", new {userList = _databaseContext.Users});
+            return HttpContext.Items["login"] as LoginInfo;
         }
-
+        
    }
 }

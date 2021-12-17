@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 
 namespace Git_clone.Models
 {
@@ -11,5 +13,7 @@ namespace Git_clone.Models
         {
 
         }
+
+
     }
 }
