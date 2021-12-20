@@ -23,7 +23,7 @@ namespace Git_clone
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<dataBaseContext>(
+            services.AddDbContext<DatabaseContext>(
                 opt => opt.UseNpgsql(@"Host=145.24.222.54; Username=postgres;Password=team6;Database=postgres;Port=8011;")
 
                 );

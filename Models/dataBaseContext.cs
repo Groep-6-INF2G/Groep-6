@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 namespace Git_clone.Models
 {
-    public class dataBaseContext : DbContext
+    public class DatabaseContext : DbContext
     {
-        public DbSet<user>Users { get; set; }
+        public DbSet<User>Users { get; set; }
         public DbSet<Location>Locations { get; set; }
 
-        public dataBaseContext(DbContextOptions<dataBaseContext> options) : base(options)
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
 
         }

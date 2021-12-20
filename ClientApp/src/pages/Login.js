@@ -22,13 +22,17 @@ export default class Login extends Component {
         e.preventDefault();
         const response = await fetch("api/login", {
             method: "POST",
-            headers: { 'Accept':'application/json','Content-Type': 'application/json' },
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
+        }).then(response => {
+            response.json().then(res => localStorage.setItem('user', res))
+            if (response.status == 200) {
+                window.location.pathname = "/HomeEditor"
+            }
+            else {
+                console.log(response)
+            }
         })
-        if (response.status == 200) {
-            localStorage.setItem('loggedIn', 'true')
-            window.location.pathname = "/HomeEditor"
-        }
     }
     
     render() {

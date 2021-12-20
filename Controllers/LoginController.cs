@@ -1,37 +1,37 @@
-﻿using Git_clone.Models;
-using Git_clone.Controllers;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using System.Collections;
-using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
+using Git_clone.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Git_clone.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
-    {    
- 
-        public ActionResult CheckLogin(LoginInfo info)
+    {
+        private DatabaseContext _databaseContext;
+
+        public LoginController(DatabaseContext databaseContext)
         {
-            if(info.Password != null && info.Email != null) 
-            {
-                HttpContext.Items.Add("login", info);
-               //return RedirectToAction("checkData", "UserController", new { login = info });
-            }
-            return BadRequest();
+            _databaseContext = databaseContext;
         }
 
         [HttpPost]
-        public ActionResult fetchData(bool result)
+        public ActionResult CheckLogin(LoginInfo loginInfo)
         {
-            if (result == true)
+            var users = _databaseContext.Users.ToList();
+            User userInfo = new();
+            if (users.FirstOrDefault(x => x.Email == loginInfo.Email && x.Password == loginInfo.Password) is User user)
             {
-                return Ok();
+                var jsonUser = JsonSerializer.Serialize(user);
+                return Ok(jsonUser);
             }
-            return NotFound();
+            else
+            {
+                return StatusCode(401);
+            }
         }
-
     }
 }
