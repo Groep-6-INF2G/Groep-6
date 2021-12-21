@@ -6,6 +6,7 @@ namespace Git_clone.Models
     {
         public DbSet<user>Users { get; set; }
         public DbSet<Location>Locations { get; set; }
+        public DbSet<Page> Pages { get; set; }
 
         public dataBaseContext(DbContextOptions<dataBaseContext> options) : base(options)
         {
