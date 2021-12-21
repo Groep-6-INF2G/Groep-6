@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../styles/login.css'
+import { store } from 'react-notifications-component';
 
 export default class Login extends Component {
     constructor() {
@@ -28,6 +29,21 @@ export default class Login extends Component {
             response.json().then(res => localStorage.setItem('user', res))
             if (response.status == 200) {
                 window.location.pathname = "/HomeEditor"
+            }
+            else if (response.status == 401) {
+                store.addNotification({
+                    title: "Failed!",
+                    message: "Login Failed",
+                    type: "danger",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 2000,
+                        onScreen: true
+                    }
+                });
             }
             else {
                 console.log(response)
