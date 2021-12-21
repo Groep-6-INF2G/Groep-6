@@ -1,9 +1,7 @@
 import React from "react"
 import '../styles/homepage.css';
-import "jquery"
+
 import { Editor } from '@tinymce/tinymce-react';
-import { renderToStaticNodeStream, renderToString } from 'react-dom/server'
-import HomePage from './HomePage'
 class HomePageEditor extends React.Component {
     constructor() {
         super();
@@ -14,21 +12,20 @@ class HomePageEditor extends React.Component {
             pagedata: undefined
         }
     }
-    componentDidMount() {
-        let htmlPageData = 'initial html value';
-        this.setState = ({
-            pagedata: htmlPageData
-        }, () => console.log(this.state.pagedata))
-        const page = fetch("api/wysiwyg?id=1", {
+    async componentDidMount() {
+        let htmlPageData;
+        const page = await fetch("api/wysiwyg?id=1", {
             method: "GET",
             headers: { 'Accept': 'apllication/json', 'Content-Type': 'application/json' },
             }
-        )   .then(response => response.json())
+        ).then(response => response.json())
             .then(response => {
                 htmlPageData = response['pageData']
-                console.log(htmlPageData)
             }
         )
+        this.setState({
+            pagedata: htmlPageData
+        });
         
     }
 
