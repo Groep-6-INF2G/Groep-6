@@ -28,10 +28,11 @@ namespace Git_clone.Controllers
                 var jsonUser = JsonSerializer.Serialize(user);
                 return Ok(jsonUser);
             }
-            else
-            {
-                return StatusCode(401);
-            }
+            else if  (users.FirstOrDefault(x => x.Email == loginInfo.Email && x.Password != loginInfo.Password) is User user1)
+                {
+                    return StatusCode(404);
+                }
+            return StatusCode(401);
         }
     }
 }
