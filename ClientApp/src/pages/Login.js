@@ -45,21 +45,6 @@ export default class Login extends Component {
                     }
                 });
             }
-            else if (response.status == 404) {
-                store.addNotification({
-                    title: "Failed!",
-                    message: "Password Incorrect!",
-                    type: "danger",
-                    insert: "top",
-                    container: "top-right",
-                    animationIn: ["animate__animated", "animate__fadeIn"],
-                    animationOut: ["animate__animated", "animate__fadeOut"],
-                    dismiss: {
-                        duration: 2000,
-                        onScreen: true
-                    }
-                });
-            }
             else {
                 console.log(response)
             }
