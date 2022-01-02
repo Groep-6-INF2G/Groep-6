@@ -7,9 +7,9 @@ namespace Git_clone.Controllers
     [Route("api/[controller]")]
     public class LocationsController : Controller
     {
-        private dataBaseContext _databaseContext;
+        private DatabaseContext _databaseContext;
 
-        public LocationsController(dataBaseContext databaseContext)
+        public LocationsController(DatabaseContext databaseContext)
         {
             _databaseContext = databaseContext; 
         }

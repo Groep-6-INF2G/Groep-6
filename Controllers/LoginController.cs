@@ -1,7 +1,10 @@
-﻿using Git_clone.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+using System.Text.Json;
+using Git_clone.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace Git_clone.Controllers
 {
@@ -9,20 +12,34 @@ namespace Git_clone.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        [HttpPost]
-        public ActionResult CheckLogin(LoginInfo info)
-        {
-            if(info.Password == null && info.Email == null)
-            {
-                return BadRequest(); 
-            }
+        private DatabaseContext _databaseContext;
 
-            if(info.Password == "abc12345" && info.Email == "abc@abc.com")
-            {
-                return StatusCode(StatusCodes.Status200OK);
-            }
-            return BadRequest();
+        public LoginController(DatabaseContext databaseContext)
+        {
+            _databaseContext = databaseContext;
         }
 
+        [HttpPost]
+        public ActionResult CheckLogin(LoginInfo loginInfo)
+        {
+            var users = _databaseContext.Users.ToList();
+            User userInfo = new();
+            Random rand = new Random();
+
+            if (users.FirstOrDefault(x => x.Email == loginInfo.Email && x.Password == loginInfo.Password) is User user)
+            {
+                HttpContext.Response.Cookies.Append("id", rand.Next().ToString(), new CookieOptions
+                {
+                    Expires = System.DateTimeOffset.Now.AddDays(1)
+                });
+
+                var jsonUser = JsonSerializer.Serialize(user);
+                return Ok(jsonUser);
+            }
+            else
+            {
+                return StatusCode(401);
+            }
+        }
     }
 }
