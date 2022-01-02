@@ -9,7 +9,7 @@ import Cookies from 'js-cookie'
  function loginOrlogout() {
      const myCookieData = Cookies.get('id');
 
-     if (myCookieData != null){
+     if (myCookieData != undefined){
         return <div className="login-button">
             <Link to="/Uitloggen"><img src={logout} alt="Uitloggen" /></Link>
         </div>
@@ -18,8 +18,7 @@ import Cookies from 'js-cookie'
         return <div className="login-button">
             <Link to="/Inloggen"><img src={login} alt="Inloggen" /></Link>
         </div>
-    }
-    
+     }    
 }
 
 
