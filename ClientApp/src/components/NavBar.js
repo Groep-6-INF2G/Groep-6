@@ -4,14 +4,24 @@ import { Link } from 'react-router-dom';
 import home from '../assets/images/home-page.png'
 import info from '../assets/images/info.png'
 import map from '../assets/images/goal.png'
+import Cookies from 'js-cookie'
+
+function Redirect() {
+    const myCookieData = Cookies.get('id');
+    if (myCookieData != null) {
+        return <li><Link to="/HomeEditor"><img src={home} alt="Startpagina" /></Link></li>
+    }
+    else { return <li><Link to="/"><img src={home} alt="Startpagina" /></Link></li>}
+}
 
 class NavBar extends React.Component {
+
     render () {
         return (
             <div className="navbar">
                 <nav>
                     <ul>
-                        <li><Link to="/"><img src={home} alt="Startpagina"/></Link></li>
+                        {Redirect()}
                         <li><Link to="/Informatie"><img src={info} alt="Informatie"/></Link></li>
                         <li><Link to="/Locaties"><img src={map} alt="Locaties"/></Link></li>
                     </ul>
