@@ -1,6 +1,7 @@
 ﻿using Git_clone.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Git_clone.Controllers
@@ -9,10 +10,19 @@ namespace Git_clone.Controllers
     [ApiController]
     public class LocationsController : ControllerBase
     {
-        [HttpPost]
-        public ActionResult GetLocations()
+        private dataBaseContext _databaseContext;
+
+        public LocationsController(dataBaseContext databaseContext)
         {
-            return BadRequest();
+            _databaseContext = databaseContext;
+        }
+
+        [HttpPost]
+
+        //GET 
+        public IEnumerable<Location> Get()
+        {
+            return _databaseContext.Locations;
         }
     }
 }
