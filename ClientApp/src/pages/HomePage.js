@@ -3,6 +3,7 @@ import '../styles/homepage.css';
 class HomePage extends React.Component {
     render() {
         return (
+
             <>
                 <div id='container' class='containerHome'>
                     <div class='text'>
