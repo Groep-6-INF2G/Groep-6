@@ -23,8 +23,23 @@ import Cookies from 'js-cookie'
 
 
 
+ function loginOrlogout() {
+     if (Cookies.get('id') != undefined){
+        return <div className="login-button">
+            <Link to="/Uitloggen"><img src={logout} alt="Uitloggen" /></Link>
+        </div>
+        }
+    else {
+        return <div className="login-button">
+            <Link to="/Inloggen"><img src={login} alt="Inloggen" /></Link>
+        </div>
+     }    
+}
+
+
+
 class Header extends React.Component {
-    render () {
+    render() {
         return (
             <div className="header">
                 <div className="logo">

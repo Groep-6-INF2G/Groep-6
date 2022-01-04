@@ -7,8 +7,7 @@ import map from '../assets/images/goal.png'
 import Cookies from 'js-cookie'
 
 function Redirect() {
-    const myCookieData = Cookies.get('id');
-    if (myCookieData != null) {
+    if (Cookies.get('id') != undefined) {
         return <li><Link to="/HomeEditor"><img src={home} alt="Startpagina" /></Link></li>
     }
     else { return <li><Link to="/"><img src={home} alt="Startpagina" /></Link></li>}
