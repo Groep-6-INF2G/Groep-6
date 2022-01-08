@@ -6,14 +6,6 @@ import info from '../assets/images/info.png'
 import map from '../assets/images/goal.png'
 import Cookies from 'js-cookie'
 
-function Redirect() {
-    const myCookieData = Cookies.get('id');
-    if (myCookieData != null) {
-        return <li><Link to="/HomeEditor"><img src={home} alt="Startpagina" /></Link></li>
-    }
-    else { return <li><Link to="/"><img src={home} alt="Startpagina" /></Link></li>}
-}
-
 class NavBar extends React.Component {
 
     render () {
@@ -21,7 +13,7 @@ class NavBar extends React.Component {
             <div className="navbar">
                 <nav>
                     <ul>
-                        {Redirect()}
+                        <li><Link to={Cookies.get('id') === undefined || Cookies.get('id') === null ? "/" : "/HomeEditor"}><img src={home} alt="Startpagina" /></Link></li>
                         <li><Link to="/Informatie"><img src={info} alt="Informatie"/></Link></li>
                         <li><Link to="/Locaties"><img src={map} alt="Locaties"/></Link></li>
                     </ul>

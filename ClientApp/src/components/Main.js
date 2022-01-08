@@ -6,8 +6,6 @@ import Information from '../pages/Information';
 import Locations from '../pages/Locations';
 import Login from '../pages/Login'
 import HomeEdit from '../pages/HomePage-Editor'
-import LoggedIn from '../pages/LoggedIn'
-import LoggedOut from '../pages/LoggedOut'
 
 const Main = () => {
   return (
@@ -17,10 +15,7 @@ const Main = () => {
         <Route exact path='/Informatie' component={Information}></Route>
         <Route exact path='/Locaties' component={Locations}></Route>
         <Route exact path='/Inloggen' component={Login}></Route>
-        <Route exact path='/HomeEditor' component={HomeEdit}></Route>
-        <Route exact path='/Ingelogd' component={LoggedIn}></Route>
-        <Route exact path='/Uitloggen' component={LoggedOut}></Route>
-    
+        <Route exact path='/HomeEditor' component={HomeEdit}></Route>    
       </Switch>
     </div>
   );

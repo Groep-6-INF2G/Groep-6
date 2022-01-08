@@ -13,9 +13,9 @@ namespace Git_clone.Controllers
     [ApiController]
     public class WysiwygController : ControllerBase
     {
-        private dataBaseContext _databaseContext;
+        private DatabaseContext _databaseContext;
 
-        public WysiwygController(dataBaseContext databaseContext)
+        public WysiwygController(DatabaseContext databaseContext)
         {
             _databaseContext = databaseContext;
         }
