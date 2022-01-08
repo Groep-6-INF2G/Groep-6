@@ -22,8 +22,7 @@ class Locations extends React.Component {
         e.preventDefault();
         //console.log(e);
         const response = await fetch("api/Locations").then(response => response.json());
-        console.log(response);
-        
+        console.log(`${response}`);
     }
     render() {
         return (
