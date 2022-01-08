@@ -10,7 +10,6 @@ class Locations extends React.Component {
         this.state = {
             postcode: ''
         }
-
     }
 
     handleChange = (e) => {
@@ -19,8 +18,12 @@ class Locations extends React.Component {
     }
 
     async handleSubmit(e) {
+        console.log("test js");
         e.preventDefault();
-        console.log(e);
+        //console.log(e);
+        const response = await fetch("api/Locations").then(response => response.json());
+        console.log(response);
+        
     }
     render() {
         return (

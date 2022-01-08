@@ -1,6 +1,7 @@
 ﻿using Git_clone.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace Git_clone.Controllers
             _databaseContext = databaseContext;
         }
 
-        [HttpPost]
+        [HttpGet]
 
         //GET 
         public IEnumerable<Location> Get()
