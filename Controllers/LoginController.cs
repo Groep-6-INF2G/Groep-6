@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using Git_clone.Models;
@@ -35,7 +35,7 @@ namespace Git_clone.Controllers
                 var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, loginInfo.Email),
-                new Claim(ClaimTypes.Role, "Administrator"),
+                new Claim(ClaimTypes.Role, "admin"),
             };
 
                 var claimsIdentity = new ClaimsIdentity(
@@ -46,7 +46,7 @@ namespace Git_clone.Controllers
                     //AllowRefresh = <bool>,
                     // Refreshing the authentication session should be allowed.
 
-                    //ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
                     // The time at which the authentication ticket expires. A 
                     // value set here overrides the ExpireTimeSpan option of 
                     // CookieAuthenticationOptions set with AddCookie.
@@ -69,8 +69,10 @@ namespace Git_clone.Controllers
                     CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity),
                     authProperties);
-
-            if(info.Password == "abc12345" && info.Email == "abc@abc.com")
+                var jsonUser = JsonSerializer.Serialize(user);
+                return Ok(jsonUser);
+            }
+            else
             {
                 return StatusCode(401);
             }
