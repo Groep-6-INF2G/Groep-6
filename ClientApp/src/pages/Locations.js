@@ -57,6 +57,7 @@ class Locations extends React.Component {
                         //this.locationsJSON.map(x => console.log(x.id))
                         this.locationsJSON.map(location => (
                             <Marker
+                                key = {location.id}
                                 position={[
                                     location.lat,
                                     location.lon
