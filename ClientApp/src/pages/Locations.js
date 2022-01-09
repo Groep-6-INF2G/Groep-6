@@ -6,8 +6,9 @@ class Locations extends React.Component {
     constructor() {
         super()
         this.handleSubmit = this.handleSubmit.bind(this);
-
+        console.log("test js");
         this.locationsJSON = [];
+        this.getLocations();
         this.mapCenter = [52.2288689, 5.3214503];
 
         this.state = {
@@ -15,10 +16,12 @@ class Locations extends React.Component {
         }
     }
 
-    async GetLocations() {
-        const response = await fetch("api/Locations")
+    getLocations() {
+        console.log('test getLocation');
+        const response = fetch("api/Locations")
             .then(response => response.json())
             .then(data => this.locationsJSON = data);
+        console.log(this.locationsJSON);
     }
 
     handleChange = (e) => {
@@ -27,7 +30,7 @@ class Locations extends React.Component {
     }
 
     async handleSubmit(e) {
-        console.log("test js");
+        console.log("test js 2");
         e.preventDefault();
         console.log(e);
         //const response = await fetch("api/Locations")
@@ -53,8 +56,8 @@ class Locations extends React.Component {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     {
-                        this.GetLocations(),
-                        //this.locationsJSON.map(x => console.log(x.id))
+                        console.log("test html"),
+                        this.getLocations(),
                         this.locationsJSON.map(location => (
                             <Marker
                                 key = {location.id}
@@ -65,11 +68,6 @@ class Locations extends React.Component {
                             />
                         ))
                     }
-                    <Marker position={[52.2288689, 5.3214503]}>
-                        <Popup>
-                            A pretty CSS3 popup. <br /> Easily customizable.
-                        </Popup>
-                    </Marker>
                 </MapContainer>
             </div>
         )
