@@ -6,22 +6,18 @@ class Locations extends React.Component {
     constructor() {
         super()
         this.handleSubmit = this.handleSubmit.bind(this);
-        console.log("test js");
-        this.locationsJSON = [];
-        this.getLocations();
         this.mapCenter = [52.2288689, 5.3214503];
 
         this.state = {
-            postcode: ''
+            postcode: '',
+            locations: []
         }
     }
 
-    getLocations() {
-        console.log('test getLocation');
-        const response = fetch("api/Locations")
+    componentDidMount() {
+        fetch("api/Locations")
             .then(response => response.json())
-            .then(data => this.locationsJSON = data);
-        console.log(this.locationsJSON);
+            .then(data => this.setState({locations: data}))
     }
 
     handleChange = (e) => {
@@ -30,13 +26,11 @@ class Locations extends React.Component {
     }
 
     async handleSubmit(e) {
-        console.log("test js 2");
         e.preventDefault();
         console.log(e);
         //const response = await fetch("api/Locations")
         //    .then(response => response.json())
         //    .then(data => this.locationsJSON = data);
-        //this.locationsJSON.map(x => console.log(x.id));
     }
     render() {
         return (
@@ -56,9 +50,7 @@ class Locations extends React.Component {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     {
-                        console.log("test html"),
-                        this.getLocations(),
-                        this.locationsJSON.map(location => (
+                        this.state.locations.map(location => (
                             <Marker
                                 key = {location.id}
                                 position={[
