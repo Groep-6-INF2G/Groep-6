@@ -21,9 +21,17 @@ namespace Git_clone.Controllers
         [HttpGet]
 
         //GET 
-        public IEnumerable<Location> Get()
+        public IEnumerable<Location> GetAll()
         {
             return _databaseContext.Locations;
         }
+
+        [HttpGet("{postcode}")]
+
+        public IEnumerable<Location> GetClosest(string postcode)
+        {
+            return _databaseContext.Locations;
+        }
+
     }
 }
