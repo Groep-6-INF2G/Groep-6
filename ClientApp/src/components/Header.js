@@ -6,12 +6,31 @@ import login from '../assets/images/login.png'
 import logout from '../assets/images/logout.png'
 import IsAuthenticated from './isAuthenticated'
 
+async function isAuth() {
+    let result = false;
+    await IsAuthenticated().then((res) => {
+        if (res === 200) {
+            result = true;
+        }
+    })
+    return result;
+}
+
+
 class Header extends React.Component {
+    constructor() {
+        super()
+        this.state = { isAuth: false };
+
+        IsAuthenticated().then((res) => {
+            if (res === 200) {
+                this.setState({isAuth:true})
+            }
+        })
+    }
+    
     render() {
-        var test = { IsAuthenticated };
-        console.log("I am fun" + { test });
-        
-        if ({ IsAuthenticated })
+        if (this.state.isAuth)
             return (
                 <div className="header">
                     <div className="logo">
