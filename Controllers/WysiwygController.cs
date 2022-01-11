@@ -23,12 +23,18 @@ namespace Git_clone.Controllers
         [HttpGet] // => "/" 
         public string Get(int id)
         {
-            var page = _databaseContext.Pages.SingleOrDefault(x => x.pageId == id);
-            Console.WriteLine(JsonConvert.SerializeObject(page));
-            return JsonConvert.SerializeObject(page);
+            var p = _databaseContext.Pages.SingleOrDefault(x => x.pageId == id);
+            if (p.pageData == null)
+            {
+                var s = _databaseContext.Sections.Where(x => x.pageid == id);
+                Console.WriteLine(JsonConvert.SerializeObject(s));
+                return JsonConvert.SerializeObject(s);
+            }
+            Console.WriteLine(JsonConvert.SerializeObject(p));
+            return JsonConvert.SerializeObject(p);
         }
 
-        [HttpPost]
+        [HttpPost("{Page}")]
         public ActionResult InsertPage(Page htmlData)
         {
             if (htmlData.pageData != null)
@@ -45,6 +51,23 @@ namespace Git_clone.Controllers
 
             return BadRequest();
         }
+        [HttpPost]
+        [Route("[Section]")]
+        public ActionResult InsertSection(Section htmlData)
+        {
+            if (htmlData.sectiondata != null)
+            {
+                Console.WriteLine(htmlData.sectiondata);
+                var result = _databaseContext.Sections.SingleOrDefault(s => s.pageid == htmlData.pageid && s.sectionid == htmlData.sectionid);
+                if (result != null)
+                {
+                    result.sectiondata = htmlData.sectiondata;
+                    _databaseContext.SaveChanges();
+                    return StatusCode(StatusCodes.Status200OK);
+                }
+            }
 
+            return BadRequest();
+        }
     }
 }

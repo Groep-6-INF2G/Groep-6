@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/images/Star-shlColour.png'
 import login from '../assets/images/login.png'
 import logout from '../assets/images/logout.png'
-import Cookies from 'js-cookie'
 
 export default class Header extends React.Component {
     render () {
@@ -13,7 +12,6 @@ export default class Header extends React.Component {
                 <div className="logo">
                     <Link to="/"><img src={logo} alt="Startpagina"/></Link>
                 </div>
-                <LoginLogout />
             </div>
         )
     }
