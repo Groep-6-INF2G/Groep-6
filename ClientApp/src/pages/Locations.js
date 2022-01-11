@@ -57,7 +57,14 @@ class Locations extends React.Component {
                                     location.lat,
                                     location.lon
                                 ]}
-                            />
+                            >
+                                <Popup>
+                                    ID: {location.id} <br />
+                                    Naam: {location.locationname}<br />
+                                    Adres: {location.street}, {location.postcode} {location.city}<br />
+                                    {location.lat}, {location.lon}
+                                </Popup>
+                            </Marker>
                         ))
                     }
                 </MapContainer>
