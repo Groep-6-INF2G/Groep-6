@@ -5,16 +5,8 @@ import logo from '../assets/images/Star-shlColour.png'
 import login from '../assets/images/login.png'
 import logout from '../assets/images/logout.png'
 import IsAuthenticated from './isAuthenticated'
+import LoggedOut from './LoggedOut'
 
-async function isAuth() {
-    let result = false;
-    await IsAuthenticated().then((res) => {
-        if (res === 200) {
-            result = true;
-        }
-    })
-    return result;
-}
 
 
 class Header extends React.Component {
@@ -37,7 +29,7 @@ class Header extends React.Component {
                         <Link to="/"><img src={logo} alt="Startpagina" /></Link>
                     </div>
                     <div className="login-button">
-                        <Link to="/Uitloggen"><img src={logout} alt="Uitloggen" /></Link>
+                        <button onClick={ LoggedOut }> <img src={logout} alt="Uitloggen" /></button>
                     </div>
                 </div>
             )

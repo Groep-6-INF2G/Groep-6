@@ -12,7 +12,7 @@ namespace Git_clone.Controllers
     [ApiController]
     public class LogoutController : ControllerBase
     {
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             try

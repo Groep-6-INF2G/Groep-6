@@ -8,8 +8,8 @@ import 'react-notifications-component/dist/theme.css'
 
 function App() {
   return (
-      <div className="app">
-          <ReactNotification />
+    <div className="app">
+      <ReactNotification />
       <Header />
       <Main />
       <NavBar />
