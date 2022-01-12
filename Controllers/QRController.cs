@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TwoFactorAuthNet;
 using TwoFactorAuthNetSkiaSharpQrProvider;
+using Git_clone.Models;
 
 namespace Git_clone.Controllers
 {
@@ -8,17 +9,33 @@ namespace Git_clone.Controllers
     [Route("api/[controller]")]
     public class QRController : Controller
     {
-        [HttpGet]
-        public string createQRSecretController()
+        TwoFactorAuth myTwoFactorAuth;
+        string secret;
+
+        public QRController()
         {
-            // Though the default is an 80 bits secret (for backwards compatibility reasons) we 
-            // recommend creating 160+ bits secrets (see RFC 4226 - Algorithm Requirements)
-            var myTwoFactorAuth = new TwoFactorAuth("groep6", qrcodeprovider: new SkiaSharpQrCodeProvider());
-            var secret = myTwoFactorAuth.CreateSecret(80);
-          
-            return myTwoFactorAuth.GetQrCodeImageAsDataUri("secretcode", secret); 
+            this.myTwoFactorAuth = new TwoFactorAuth("groep6", qrcodeprovider: new SkiaSharpQrCodeProvider());
+            this.secret =  myTwoFactorAuth.CreateSecret(80);
         }
 
+
+        [HttpGet]
+        public string getQR()
+        {
+            return myTwoFactorAuth.GetQrCodeImageAsDataUri("secretcode", secret);
+        }
+
+
+
+        [HttpPost]
+        public IActionResult getResult(QRcode code)
+        {
+            if (myTwoFactorAuth.VerifyCode(this.secret, code.ToString()))
+            {
+                return Ok(code);
+            }
+            return Unauthorized();
+        }
        
     }
 }
