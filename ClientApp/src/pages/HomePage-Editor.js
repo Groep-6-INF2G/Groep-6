@@ -35,7 +35,7 @@ class HomePageEditor extends React.Component {
             pageData: e.target.getContent()
         }
         e.preventDefault();
-        fetch("api/wysiwyg", {
+        fetch("api/wysiwyg/page", {
             method: "POST",
             headers: { 'Accept': 'apllication/json', 'Content-Type': 'application/json' },
             body: JSON.stringify(homepageData)

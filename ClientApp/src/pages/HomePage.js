@@ -27,7 +27,7 @@ class HomePage extends React.Component {
     
     render() {
         return (
-            <div contentEditable='true' dangerouslySetInnerHTML={{ __html: this.state.pagedata }}></div>
+            <div dangerouslySetInnerHTML={{ __html: this.state.pagedata }}></div>
         )
     }
 }

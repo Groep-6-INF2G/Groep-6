@@ -29,6 +29,7 @@ class Information extends React.Component {
         }).then(response => response.json())
             .then(response => {
                 htmlPageData = response
+                htmlPageData.sort((a, b) => parseFloat(a.sectionid) - parseFloat(b.sectionid));
                 console.log(htmlPageData)
             }
             )
@@ -38,14 +39,14 @@ class Information extends React.Component {
         console.log(this.state.pagedata)
     }
 
-    onSaveContent(e, id) {
+    onSaveContent(id, e) {
         let homepageData = {
             sectionid: id,
             sectiondata: e.target.getContent(),
             pageId: 2
         }
         e.preventDefault();
-        fetch("api/wysiwyg/Section", {
+        fetch("api/wysiwyg/section", {
             method: "POST",
             headers: { 'Accept': 'apllication/json', 'Content-Type': 'application/json' },
             body: JSON.stringify(homepageData)
@@ -70,7 +71,7 @@ class Information extends React.Component {
                                 init={{
                                     inline: true, menubar: false, plugins: 'save', toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |  removeformat | save cancel'
                                 }}
-                                onSaveContent={this.onSaveContent}
+                                onSaveContent={(e) => this.onSaveContent(1, e)}
                             />
                         </Collapsible>
 
@@ -90,7 +91,7 @@ class Information extends React.Component {
                                 init={{
                                     inline: true, menubar: false, plugins: 'save', toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |  removeformat | save cancel'
                                 }}
-                                onSaveContent={this.onSaveContent}
+                                onSaveContent={(e) => this.onSaveContent(3, e)}
                             />
                         </Collapsible>
 
@@ -105,13 +106,7 @@ class Information extends React.Component {
                         </Collapsible>
 
                         <Collapsible title="Video">
-                            <Editor id="Information" tinymceScriptSrc={'tinymce/tinymce.min.js'}
-                                initialValue={'<video src="../../src/assets/videos/Wat gebeurt er met mijn bloed_.mp4" width="1024" height="576" controls />'}
-                                init={{
-                                    inline: true, menubar: false, plugins: 'save', toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |  removeformat | save cancel'
-                                }}
-                                onSaveContent={this.onSaveContent}
-                            />
+                            <video src={video1} width="1024" height="576" controls />
                         </Collapsible>
 
                     </div>

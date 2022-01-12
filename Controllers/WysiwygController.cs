@@ -33,8 +33,8 @@ namespace Git_clone.Controllers
             Console.WriteLine(JsonConvert.SerializeObject(p));
             return JsonConvert.SerializeObject(p);
         }
-
-        [HttpPost("{Page}")]
+        [Route("page")]
+        [HttpPost]
         public ActionResult InsertPage(Page htmlData)
         {
             if (htmlData.pageData != null)
@@ -51,8 +51,9 @@ namespace Git_clone.Controllers
 
             return BadRequest();
         }
+        [Route("section")]
         [HttpPost]
-        [Route("[Section]")]
+        
         public ActionResult InsertSection(Section htmlData)
         {
             if (htmlData.sectiondata != null)

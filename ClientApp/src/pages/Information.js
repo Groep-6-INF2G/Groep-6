@@ -26,6 +26,7 @@ class Information extends React.Component {
         }).then(response => response.json())
             .then(response => {
                 htmlPageData = response
+                htmlPageData.sort((a, b) => parseFloat(a.sectionid) - parseFloat(b.sectionid));
                 console.log(htmlPageData)
             }
             )
@@ -47,23 +48,23 @@ class Information extends React.Component {
                         <div>
 
                             <Collapsible title="Wat is het doel van bloedprikken?">
-                                <div contentEditable='true' dangerouslySetInnerHTML={{ __html: this.state.pagedata[0].sectiondata }}></div>
+                                <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[0].sectiondata }}></div>
                             </Collapsible>
 
                             <Collapsible title="Voorbereiding">
-                                <div contentEditable='true' dangerouslySetInnerHTML={{ __html: this.state.pagedata[1].sectiondata }}></div>
+                                <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[1].sectiondata }}></div>
                             </Collapsible>
 
                             <Collapsible title="Verloop onderzoek">
-                                <div contentEditable='true' dangerouslySetInnerHTML={{ __html: this.state.pagedata[2].sectiondata }}></div>
+                                <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[2].sectiondata }}></div>
                             </Collapsible>
 
                             <Collapsible title="Doorlooptijden en uitslag">
-                                <div contentEditable='true' dangerouslySetInnerHTML={{ __html: this.state.pagedata[3].sectiondata }}></div>
+                                <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[3].sectiondata }}></div>
                             </Collapsible>
 
                             <Collapsible title="Video">
-                                <div contentEditable='true' dangerouslySetInnerHTML={{ __html: this.state.pagedata[4].sectiondata }}></div>
+                                {<video src={video1} width="1024" height="576" controls />}
                             </Collapsible>
 
                         </div>
