@@ -1,4 +1,4 @@
-﻿using Git_clone.Models;
+using Git_clone.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -11,25 +11,32 @@ namespace Git_clone.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoginController : ControllerBase
+    public class VerificationController : ControllerBase
     {
 
         [HttpPost]
-        public ActionResult CheckLogin(LoginInfo info)
+        public ActionResult CheckLogin(VerificationInfo info)
         {
-            if(info.Password == null && info.Email == null)
+            if (info.Email == null && info.Code == null)
             {
-                return BadRequest(); 
+                return BadRequest();
             }
-
-            if(info.Password == "abc12345" && info.Email == "brentdbr@hotmail.nl")
+            if (info.Code == null)
             {
                 int vCode = Mailsend.sendmail(info.Email);
                 var person = Tuple.Create(info.Email, vCode, DateTime.Now.AddMinutes(10));
                 Program.Checker.PeopleList.Add(person);
-                return StatusCode(StatusCodes.Status200OK);
+                return Ok();
+            }
+            foreach ( var people in Program.Checker.PeopleList)
+            {
+                if (info.Email == people.Item1 && info.Code == people.Item2.ToString())
+                {
+                    return Ok();
+                }
             }
             return BadRequest();
         }
+
     }
 }
