@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import '../styles/VerificationStyle.css'
 import GetQR from '../components/fetchImage'
-import TextField from '@mui/material/TextField';
 
 
 class Verification extends React.Component {
