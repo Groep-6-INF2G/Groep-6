@@ -81,7 +81,7 @@ class Information extends React.Component {
                                 init={{
                                     inline: true, menubar: false, plugins: 'save', toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |  removeformat | save cancel'
                                 }}
-                                onSaveContent={this.onSaveContent}
+                                onSaveContent={(e) => this.onSaveContent(2, e)}
                             />
                         </Collapsible>
 
@@ -101,7 +101,7 @@ class Information extends React.Component {
                                 init={{
                                     inline: true, menubar: false, plugins: 'save', toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |  removeformat | save cancel'
                                 }}
-                                onSaveContent={this.onSaveContent}
+                                onSaveContent={(e) => this.onSaveContent(4, e)}
                             />
                         </Collapsible>
 
