@@ -18,10 +18,17 @@ class Main extends React.Component {
     render() {
         if (this.state.isAuth) {
             return (
-                <PrivateRoute />
+                <div id="content">
+                    <PrivateRoute />
+                </div>
             );
         }
-        return <PublicRoute />
+        return (
+            <div id="content">
+                <PublicRoute />
+            </div>
+            )
+        
     }
 }
 
