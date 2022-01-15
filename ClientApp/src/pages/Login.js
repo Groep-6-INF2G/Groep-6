@@ -24,14 +24,14 @@ export default class Login extends Component {
         const response = await fetch("api/login", {
             method: "POST",
             credentials: 'include',
-            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json',  },
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
         }).then(response => {
-            response.json().then(res => localStorage.setItem('user', res))
             if (response.status == 200) {
-                window.location.pathname = "/HomeEditor"
+                localStorage.setItem('email', this.state.email)
+                window.location.pathname = "/Verification"
             }
-            else if (response.status == 401) {
+            else {
                 store.addNotification({
                     title: "Failed!",
                     message: "Login Failed",
@@ -46,10 +46,8 @@ export default class Login extends Component {
                     }
                 });
             }
-            else {
-                console.log(response)
-            }
         })
+
     }
     
     render() {
