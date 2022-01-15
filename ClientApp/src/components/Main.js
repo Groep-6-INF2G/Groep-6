@@ -3,8 +3,7 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import IsAuthenticated from './isAuthenticated'
 
-
-class Main extends React.Component {
+export default class Main extends React.Component {
     constructor() {
         super()
         this.state = { isAuth: false };
@@ -19,7 +18,7 @@ class Main extends React.Component {
         if (this.state.isAuth) {
             return (
                 <div id="content">
-                    <PrivateRoute />
+                    <privateRoute />
                 </div>
             );
         }
@@ -31,5 +30,3 @@ class Main extends React.Component {
         
     }
 }
-
-export default Main;

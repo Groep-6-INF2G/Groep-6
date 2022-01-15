@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/information.css';
 
-class Locations extends React.Component {
+export default class Locations extends React.Component {
     displayLocations() {
         fetch("api/Locations/")
             .then(response => response.text()) 
@@ -21,5 +21,3 @@ class Locations extends React.Component {
         )
     }
 }
-
-export default Locations;

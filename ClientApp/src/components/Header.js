@@ -5,11 +5,9 @@ import logo from '../assets/images/Star-shlColour.png'
 import login from '../assets/images/login.png'
 import logout from '../assets/images/logout.png'
 import IsAuthenticated from './isAuthenticated'
-import LoggedOut from './LoggedOut'
+import logOut from './LoggedOut'
 
-
-
-class Header extends React.Component {
+export default class Header extends React.Component {
     constructor() {
         super()
         this.state = { isAuth: false };
@@ -29,7 +27,7 @@ class Header extends React.Component {
                         <Link to="/"><img src={logo} alt="Startpagina" /></Link>
                     </div>
                     <div className="login-button">
-                        <button onClick={ LoggedOut }> <img src={logout} alt="Uitloggen" /></button>
+                        <button onClick={ logOut }> <img src={logout} alt="Uitloggen" /></button>
                     </div>
                 </div>
             )
@@ -46,5 +44,3 @@ class Header extends React.Component {
         )
     }
 }
-
-export default Header;

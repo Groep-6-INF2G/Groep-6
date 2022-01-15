@@ -1,10 +1,6 @@
-﻿import React from "react";
-import axios from 'axios'
-import {Redirect} from 'react-router'
+﻿import axios from 'axios'
 
-export default function LoggedOut() {
+export default function logOut() {
     axios.get('api/logout')
     return window.location.pathname = '/';
 }
-
-

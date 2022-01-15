@@ -10,8 +10,7 @@ import passport from '../../src/assets/images/passport.png';
 import goal from '../../src/assets/images/goal.png';
 import info from '../../src/assets/images/info.png';
 
-
-class Information extends React.Component {
+export default class Information extends React.Component {
     render() {
         return (
             <div className="container">
@@ -89,5 +88,3 @@ class Information extends React.Component {
        
     }
 }
-
-export default Information;

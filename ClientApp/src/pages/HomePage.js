@@ -1,9 +1,9 @@
 import React from "react"
 import '../styles/homepage.css';
-class HomePage extends React.Component {
+
+export default class HomePage extends React.Component {
     render() {
         return (
-
             <>
                 <div id='container' class='containerHome'>
                     <div class='text'>
@@ -19,5 +19,3 @@ class HomePage extends React.Component {
         )
     }
 }
-
-export default HomePage;

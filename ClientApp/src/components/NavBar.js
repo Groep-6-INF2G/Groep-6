@@ -6,9 +6,7 @@ import info from '../assets/images/info.png'
 import map from '../assets/images/goal.png'
 import IsAuthenticated from './isAuthenticated'
 
-
-
-class NavBar extends React.Component {
+export default class NavBar extends React.Component {
     constructor() {
         super()
         this.state = { isAuth: false };
@@ -49,5 +47,3 @@ class NavBar extends React.Component {
         }
     }
 }
-
-export default NavBar;

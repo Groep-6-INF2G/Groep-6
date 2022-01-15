@@ -1,14 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
+﻿using Microsoft.AspNetCore.Mvc;
 using Git_clone.Models;
-using System.Collections.Generic;
 using System.Linq;
 using System;
-using Microsoft.AspNetCore.Authentication;
-using System.Threading.Tasks;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Git_clone.Controllers
 {
@@ -24,7 +17,7 @@ namespace Git_clone.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CheckLoginAsync(LoginInfo loginInfo)
+        public ActionResult CheckLogin(LoginInfo loginInfo)
         {
             var users = _databaseContext.Users.ToList();
 

@@ -10,7 +10,6 @@
     padding-top: 40px;
 }
 
-
 .input-fields {
     padding: 10px 0;
   	display: block;
@@ -49,7 +48,6 @@
 .input-fields form button:hover {
     background-color: #ac3243;
 }
-
 
 @media only screen and (max-width: 600px) {
     #title {

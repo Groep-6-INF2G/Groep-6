@@ -14,16 +14,12 @@ namespace Git_clone.Controllers
             _databaseContext = databaseContext; 
         }
 
-        [HttpGet("")] // => "/" 
+        [HttpGet("")]
         
-        //GET 
         public IEnumerable<Location> Get()
         {
             return _databaseContext.Locations;
         }
-        
-
-
 
     }
 }

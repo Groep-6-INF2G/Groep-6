@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Git_clone.Controllers
 {
@@ -20,7 +18,7 @@ namespace Git_clone.Controllers
             _databaseContext = databaseContext;
         }
 
-        [HttpGet] // => "/" 
+        [HttpGet]
         public string Get(int id)
         {
             var page = _databaseContext.Pages.SingleOrDefault(x => x.pageId == id);

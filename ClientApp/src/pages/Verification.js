@@ -2,8 +2,7 @@ import React from 'react'
 import { store } from 'react-notifications-component';
 import '../styles/VerificationStyle.css'
 
-
-class Verification extends React.Component {
+export default class Verification extends React.Component {
 
     constructor() {
         super()
@@ -76,5 +75,3 @@ class Verification extends React.Component {
         )
     }
 }
-
-export default Verification;
