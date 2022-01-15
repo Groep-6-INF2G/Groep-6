@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import '../styles/locations.css';
 
 class Locations extends React.Component {
@@ -7,17 +7,17 @@ class Locations extends React.Component {
         super()
         this.handleSubmit = this.handleSubmit.bind(this);
         this.mapCenter = [52.2288689, 5.3214503];
-
         this.state = {
             postcode: '',
-            locations: []
+            locations: [],
+            userLocation: []
         }
     }
 
     componentDidMount() {
         fetch("api/Locations")
             .then(response => response.json())
-            .then(data => this.setState({locations: data}))
+            .then(data => this.setState({ locations: data }))
     }
 
     handleChange = (e) => {
@@ -28,9 +28,11 @@ class Locations extends React.Component {
     async handleSubmit(e) {
         e.preventDefault();
         console.log(e);
-        //const response = await fetch("api/Locations")
-        //    .then(response => response.json())
-        //    .then(data => this.locationsJSON = data);
+        const response = await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?Postal=${this.state.postcode}&countrycode=NL&outFields=location&forStorage=false&f=pjson`)
+            .then(response => response.json())
+            .then(data => this.setState({ userLocation: data.candidates[0].location }))
+            .catch(error => console.error(error))
+        console.log(this.state.userLocation)
     }
     render() {
         return (
@@ -52,12 +54,11 @@ class Locations extends React.Component {
                     {
                         this.state.locations.map(location => (
                             <Marker
-                                key = {location.id}
+                                key={location.id}
                                 position={[
                                     location.lat,
                                     location.lon
-                                ]}
-                            >
+                                ]}>
                                 <Popup>
                                     ID: {location.id} <br />
                                     Naam: {location.locationname}<br />
@@ -65,8 +66,7 @@ class Locations extends React.Component {
                                     {location.lat}, {location.lon}
                                 </Popup>
                             </Marker>
-                        ))
-                    }
+                        ))}
                 </MapContainer>
             </div>
         )
