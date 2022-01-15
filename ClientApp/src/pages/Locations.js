@@ -2,9 +2,14 @@ import React from "react";
 import '../styles/information.css';
 
 class Locations extends React.Component {
+    displayLocations() {
+        fetch("api/Locations/")
+            .then(response => response.text()) 
+    }
+
     render() {
         return (
-            <div class= "container">
+            <div className="container">
                 <h1>
                     Locaties
                 </h1>

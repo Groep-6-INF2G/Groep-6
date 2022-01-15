@@ -1,7 +1,7 @@
 import React from "react"
 import '../styles/homepage.css';
 import TinyEditorComponent from "../components/tinymce-init.js";
-import MyEditor from "../components/JavaScript.js";
+import MyEditor from "../components/Cookies.js";
 class HomePage extends React.Component {
     render() {
         return (
