@@ -18,7 +18,7 @@ export default class Main extends React.Component {
         if (this.state.isAuth) {
             return (
                 <div id="content">
-                    <privateRoute />
+                    <PrivateRoute />
                 </div>
             );
         }
