@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { store } from 'react-notifications-component';
 import '../styles/VerificationStyle.css'
 
 
@@ -28,6 +29,21 @@ class Verification extends React.Component {
         if (response.status == 200) {
             localStorage.setItem('loggedIn', true)
             window.location.pathname = "/HomeEditor"
+        }
+        else {
+            store.addNotification({
+                title: "Failed!",
+                message: "Wrong verification code",
+                type: "danger",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 2000,
+                    onScreen: true
+                }
+            });
         }
     }
 

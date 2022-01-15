@@ -16,11 +16,11 @@ namespace Git_clone
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential() {
-                    UserName = "",
-                    Password = ""
+                    UserName = "starverifytotp@gmail.com",
+                    Password = "inf2ggroep6"
                 }
             };
-            MailAddress FromEmail = new MailAddress("", "Star Shl");
+            MailAddress FromEmail = new MailAddress("starverifytotop@gmail.com", "Star Shl");
             MailAddress ToEmail = new MailAddress(emailadr);
             MailMessage message = new MailMessage() {
                 From = FromEmail,
