@@ -6,27 +6,41 @@ import corona from '../../src/assets/images/corona.png';
 import coronamaatregels from '../../src/assets/images/coronamaatregels.jpg';
 import '../styles/information.css';
 import meenemen from '../../src/assets/images/meenemen.png';
-import passport from '../../src/assets/images/passport.png';
-import goal from '../../src/assets/images/goal.png';
-import info from '../../src/assets/images/info.png';
+import humanInfo from '../../src/assets/images/humanInfo.png';
+import requestForm from '../../src/assets/images/requestForm.png';
+import insuranceCard from '../../src/assets/images/insuranceCard.png';
 
 export default class Information extends React.Component {
     render() {
         return (
             <div className="container">
 
-                <Collapsible src={syringe} className="Icons" title="Bloed prikken">
+                <Collapsible src={syringe} className="Icons" title="Bloed afname">
                     <div>
 
-                        <Collapsible title="Wat is het doel van bloedprikken?">
-                            <div>
-                                <p>Door bloed te prikken krijg je informatie over jouw lichaam. Met de informatie die wij krijgen kunnen we kijken of jouw organen gezond zijn en goed functioneren.</p>
+                        <Collapsible title="Wat is het doel van bloedafname?">
+                            <div class="TextNextToImage">
+                                <img src={humanInfo} alt='Humaninfo' />
+                                <div class="text">
+                                    <p> - Informatie over jouw lichaam </p>
+                                </div> 
                             </div>
                         </Collapsible>
 
                         <Collapsible title="Voorbereiding">
                             <div>
-                                <p className="paragraf">Wat je moet meenemen naar het bloedprikken:</p>
+                                <p className="paragraf">Wat je moet meenemen naar het bloedafname:</p>
+                                <div class="TextNextToImage">
+                                    <img src={requestForm} alt='Aanvraagformulier' />
+                                    <div class="text">
+                                        <p> Aanvraagformulier </p>
+                                    </div>
+                                    <img src={insuranceCard} alt="Verzekeringspas" />
+                                    <div class="text">
+                                        <p>Verzekeringspas</p>
+                                    </div>
+                                </div>
+
                                 <ul className="paragraf">
                                     <li>Aanvraagformulier</li>
                                     <li>Verzekeringspas</li>
@@ -58,7 +72,7 @@ export default class Information extends React.Component {
                             </div>
                         </Collapsible>
 
-                        <Collapsible title="Video">
+                        <Collapsible title="Wat gebeurt er met mijn bloed?">
                             {<video src={video1} width="1024" height="576" controls />}
                         </Collapsible>
 
@@ -66,15 +80,7 @@ export default class Information extends React.Component {
                 </Collapsible>
 
                 <Collapsible src={meenemen} className="Icons">
-                    <div>
-                        <Collapsible src={passport}>
-                            <div>
-                                <img src={syringe} alt="" width="400" height="300" />
-                            </div>
-                        </Collapsible>
-                        <img src={goal} alt="" width="400" height="300" />
-                        <img src={info} alt="" width="400" height="300" />
-                    </div>
+  
                 </Collapsible>
 
                 <Collapsible src={corona} className="Icons">

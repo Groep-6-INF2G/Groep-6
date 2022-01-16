@@ -88,3 +88,12 @@ ul.paragraf{
     max-width: auto;
     height: auto;
 }
+.TextNextToImage {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.text {
+    font-size: 20px;
+    padding-left: 20px;
+}
