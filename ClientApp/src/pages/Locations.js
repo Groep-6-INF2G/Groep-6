@@ -2,7 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import '../styles/locations.css';
 
-class Locations extends React.Component {
+export default class Locations extends React.Component {
     constructor() {
         super()
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -104,5 +104,3 @@ class Locations extends React.Component {
         )
     }
 }
-
-export default Locations;
