@@ -11,9 +11,9 @@ namespace Git_clone.Controllers
     [ApiController]
     public class LocationsController : ControllerBase
     {
-        private dataBaseContext _databaseContext;
+        private DatabaseContext _databaseContext;
 
-        public LocationsController(dataBaseContext databaseContext)
+        public LocationsController(DatabaseContext databaseContext)
         {
             _databaseContext = databaseContext;
         }

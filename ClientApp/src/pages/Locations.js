@@ -35,14 +35,12 @@ export default class Locations extends React.Component {
             .then(response => response.json())
             .then(data => this.setState({ userLocation: [data.candidates[0].location.y, data.candidates[0].location.x] }))
             .catch(error => console.error(error))
-        console.log(this.state.userLocation)
 
         //fetch 3 closest locations to coords from backend
         await fetch(`api/Locations/[${this.state.userLocation}]`)
             .then(response => response.json())
             .then(data => this.setState({ closestLocations: data }))
             .catch(error => console.error(error))
-        console.log(this.state.closestLocations)
     }
     render() {
         return (
@@ -88,9 +86,9 @@ export default class Locations extends React.Component {
                                 ]}>
                                 <Popup>
                                     <p style={{ fontSize: '1rem' }}>
-                                        <p style={{ fontWeight: 'bold' , marginBottom: '3px'}}>
-                                            {location.locationname}
-                                        </p>
+                                        <span style={{ fontWeight: 'bold' , marginBottom: '3px'}}>
+                                            {location.locationname}<br />
+                                        </span>
                                         {location.street}, {location.postcode}<br />
                                         {location.city}<br />
                                         {location.openinghours}<br />
