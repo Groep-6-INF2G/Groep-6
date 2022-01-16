@@ -1,8 +1,8 @@
 ﻿.search-box {
     background-color: #79b9d5;
     max-width: 32rem;
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .search-field {
@@ -81,6 +81,8 @@
         margin-bottom: 15px;
         border: none;
         font-size: 25px;
+        margin-right: auto;
+        margin-left: auto;
     }
 
 .leaflet-container {

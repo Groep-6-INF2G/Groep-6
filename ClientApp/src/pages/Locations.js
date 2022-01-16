@@ -34,12 +34,14 @@ class Locations extends React.Component {
         await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?Postal=${this.state.postcode}&countrycode=NL&outFields=location&forStorage=false&f=pjson`)
             .then(response => response.json())
             .then(data => this.setState({ userLocation: [data.candidates[0].location.y, data.candidates[0].location.x] }))
+            .catch(error => console.error(error))
         console.log(this.state.userLocation)
 
         //fetch 3 closest locations to coords from backend
         await fetch(`api/Locations/[${this.state.userLocation}]`)
             .then(response => response.json())
             .then(data => this.setState({ closestLocations: data }))
+            .catch(error => console.error(error))
         console.log(this.state.closestLocations)
     }
     render() {
@@ -57,18 +59,21 @@ class Locations extends React.Component {
                 <div class="list-box">
                     {
                         this.state.closestLocations.map(location => (
-                            <div class="item">
+                            <div class="item" key={location.id}>
                                 <p class="item-header">
                                     {location.locationname}
                                 </p>
                                 <p class="item-body">
-                                    Adres: {location.street}, {location.postcode}<br />{location.city}<br />
+                                    {location.street}, {location.postcode}<br />
+                                    {location.city}<br />
+                                    {location.openinghours}<br />
+                                    {location.particularities}
                                 </p>
                             </div>
                         ))
                     }
                 </div>
-                <MapContainer center={this.mapCenter} zoom={7} scrollWheelZoom={true}>
+                <MapContainer center={this.mapCenter} zoom={7} scrollWheelZoom={true} tap={false}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -82,15 +87,20 @@ class Locations extends React.Component {
                                     location.lon
                                 ]}>
                                 <Popup>
-                                    ID: {location.id} <br />
-                                    Naam: {location.locationname}<br />
-                                    Adres: {location.street}, {location.postcode} {location.city}<br />
-                                    {location.lat}, {location.lon}
+                                    <p style={{ fontSize: '1rem' }}>
+                                        <p style={{ fontWeight: 'bold' , marginBottom: '3px'}}>
+                                            {location.locationname}
+                                        </p>
+                                        {location.street}, {location.postcode}<br />
+                                        {location.city}<br />
+                                        {location.openinghours}<br />
+                                        {location.particularities}
+                                    </p>
                                 </Popup>
                             </Marker>
                         ))}
                 </MapContainer>
-            </div>
+            </div >
         )
     }
 }
