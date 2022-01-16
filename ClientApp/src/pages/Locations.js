@@ -28,7 +28,7 @@ class Locations extends React.Component {
 
     async handleSubmit(e) {
         e.preventDefault();
-        console.log(e);
+        //console.log(e);
 
         //fetch lat and lon coords of postcode from api
         await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?Postal=${this.state.postcode}&countrycode=NL&outFields=location&forStorage=false&f=pjson`)
@@ -55,14 +55,18 @@ class Locations extends React.Component {
                     </div>
                 </div>
                 <div class="list-box">
-                    <div class="item">
-                        <p class="item-header">Yee Haw </p>
-                        <p class="item-body">Yee Haw </p>
-                    </div>
-                    <div class="item">
-                        <p class="item-header">Yee Haw </p>
-                        <p class="item-body">Yee Haw </p>
-                    </div>
+                    {
+                        this.state.closestLocations.map(location => (
+                            <div class="item">
+                                <p class="item-header">
+                                    {location.locationname}
+                                </p>
+                                <p class="item-body">
+                                    Adres: {location.street}, {location.postcode}<br />{location.city}<br />
+                                </p>
+                            </div>
+                        ))
+                    }
                 </div>
                 <MapContainer center={this.mapCenter} zoom={7} scrollWheelZoom={true}>
                     <TileLayer

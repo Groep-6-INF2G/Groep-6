@@ -26,16 +26,15 @@
     }
 
 .list-box {
-    background-color: darkgray;
+    background-color: #d8d8d8;
     border-radius: 8px;
     margin-right: auto;
     margin-left: auto;
-    padding-bottom: 2px;
-    width: 99%;
+    width: 98%;
 }
 
 .item {
-    box-shadow: 0px 13px 2px -13px black
+    box-shadow: 0px 13px 2px -13px black;
 }
 
     .item .item-header {
@@ -89,6 +88,6 @@
     height: 66vh;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 15px;
-    margin-bottom: 100px;
+    margin-top: 10px;
+    margin-bottom: 90px;
 }
