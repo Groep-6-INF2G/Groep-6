@@ -54,6 +54,16 @@ class Locations extends React.Component {
                         </form>
                     </div>
                 </div>
+                <div class="list-box">
+                    <div class="item">
+                        <p class="item-header">Yee Haw </p>
+                        <p class="item-body">Yee Haw </p>
+                    </div>
+                    <div class="item">
+                        <p class="item-header">Yee Haw </p>
+                        <p class="item-body">Yee Haw </p>
+                    </div>
+                </div>
                 <MapContainer center={this.mapCenter} zoom={7} scrollWheelZoom={true}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
