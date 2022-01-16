@@ -1,9 +1,9 @@
 ﻿using Git_clone.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Linq;
+using System.Text.Json;
 
 namespace Git_clone.Controllers
 {
@@ -26,11 +26,15 @@ namespace Git_clone.Controllers
             return _databaseContext.Locations;
         }
 
-        [HttpGet("{postcode}")]
+        [HttpGet("{coordsString}")]
 
-        public IEnumerable<Location> GetClosest(string postcode)
+        public IEnumerable<Location> GetClosest(string coordsString)
         {
-            return _databaseContext.Locations;
+            double[] coords = JsonSerializer.Deserialize<double[]>(coordsString);
+            var closest = (from l in _databaseContext.Locations select l)
+                                    .OrderBy(d => 3959 * Math.Acos(Math.Cos(Math.PI / 180 * coords[0]) * Math.Cos(Math.PI / 180 * d.lat) * Math.Cos(Math.PI / 180 * d.lon - Math.PI / 180 * coords[1]) + Math.Sin(Math.PI / 180 * coords[0]) * Math.Sin(Math.PI / 180 * d.lat)))
+                                    .Take(3);
+            return closest;
         }
 
     }

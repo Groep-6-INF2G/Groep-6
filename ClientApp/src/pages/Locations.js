@@ -10,7 +10,8 @@ class Locations extends React.Component {
         this.state = {
             postcode: '',
             locations: [],
-            userLocation: []
+            userLocation: [],
+            closestLocations: []
         }
     }
 
@@ -28,11 +29,18 @@ class Locations extends React.Component {
     async handleSubmit(e) {
         e.preventDefault();
         console.log(e);
-        const response = await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?Postal=${this.state.postcode}&countrycode=NL&outFields=location&forStorage=false&f=pjson`)
+
+        //fetch lat and lon coords of postcode from api
+        await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?Postal=${this.state.postcode}&countrycode=NL&outFields=location&forStorage=false&f=pjson`)
             .then(response => response.json())
-            .then(data => this.setState({ userLocation: data.candidates[0].location }))
-            .catch(error => console.error(error))
+            .then(data => this.setState({ userLocation: [data.candidates[0].location.y, data.candidates[0].location.x] }))
         console.log(this.state.userLocation)
+
+        //fetch 3 closest locations to coords from backend
+        await fetch(`api/Locations/[${this.state.userLocation}]`)
+            .then(response => response.json())
+            .then(data => this.setState({ closestLocations: data }))
+        console.log(this.state.closestLocations)
     }
     render() {
         return (
