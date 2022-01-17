@@ -11,7 +11,7 @@ import goal from '../../src/assets/images/goal.png';
 import info from '../../src/assets/images/info.png';
 
 
-class Information extends React.Component {
+export default class Information extends React.Component {
     constructor() {
         super();
         this.state = {

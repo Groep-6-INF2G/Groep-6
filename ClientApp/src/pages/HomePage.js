@@ -3,7 +3,7 @@ import '../styles/homepage.css';
 import { MdOutlineLocationOn } from 'react-icons/md';
 import { GiTestTubes } from 'react-icons/gi';
 import { BsArrowRightShort } from 'react-icons/bs';
-class HomePage extends React.Component {
+export default class HomePage extends React.Component {
     constructor() {
         super();
 
