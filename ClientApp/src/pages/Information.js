@@ -3,72 +3,96 @@ import syringe from '../../src/assets/images/syringe.png';
 import Collapsible from "../components/Collapsible";
 import video1 from "../../src/assets/videos/Wat gebeurt er met mijn bloed_.mp4";
 import corona from '../../src/assets/images/corona.png';
-import coronamaatregels from '../../src/assets/images/coronamaatregels.jpg';
+import urine from '../../src/assets/images/urine.png';
+import verloopOnderzoek from '../../src/assets/images/verloopOnderzoek.png';
 import '../styles/information.css';
-import meenemen from '../../src/assets/images/meenemen.png';
-import humanInfo from '../../src/assets/images/humanInfo.png';
-import requestForm from '../../src/assets/images/requestForm.png';
-import insuranceCard from '../../src/assets/images/insuranceCard.png';
+import { MdOutlineChairAlt, MdSocialDistance } from 'react-icons/md';
+import { BiBody, BiPlusMedical, BiTestTube } from 'react-icons/bi';
+import { AiOutlineIdcard, AiOutlineFieldTime } from 'react-icons/ai';
+import { BsCreditCard, BsChatText, BsCalendarCheck, BsTelephoneInbound } from 'react-icons/bs';
+import { RiFileTextLine, RiSurgicalMaskLine } from 'react-icons/ri';
+import { GiBandageRoll, GiMasonJar } from 'react-icons/gi';
+import { IoIosTimer } from 'react-icons/io';
+
+
+
 
 export default class Information extends React.Component {
     render() {
         return (
             <div className="container">
 
-                <Collapsible src={syringe} className="Icons" title="Bloed afname">
+                <Collapsible src={syringe} className="Icons" title="Bloedafname">
                     <div>
 
                         <Collapsible title="Wat is het doel van bloedafname?">
-                            <div class="TextNextToImage">
-                                <img src={humanInfo} alt='Humaninfo' />
-                                <div class="text">
-                                    <p> - Informatie over jouw lichaam </p>
+
+                                <div className="text">
+                                    <BiBody color="#79b9d5" fontSize="35px" />
+                                    <p> - Informatie over uw lichaam </p>
                                 </div> 
-                            </div>
                         </Collapsible>
 
                         <Collapsible title="Voorbereiding">
                             <div>
-                                <p className="paragraf">Wat je moet meenemen naar het bloedafname:</p>
-                                <div class="TextNextToImage">
-                                    <img src={requestForm} alt='Aanvraagformulier' />
-                                    <div class="text">
-                                        <p> Aanvraagformulier </p>
-                                    </div>
-                                    <img src={insuranceCard} alt="Verzekeringspas" />
-                                    <div class="text">
-                                        <p>Verzekeringspas</p>
-                                    </div>
+                                <div className="text">
+                                    <BsCalendarCheck color="#79b9d5" fontSize="35px" />
+                                    <p> - Afspraak telefonisch of online plannen </p>
+                                </div>
+                                    <div className="text">
+                                        <RiFileTextLine color="#79b9d5" fontSize="35px"/>
+                                        <p> - Verwijzing van uw zorgverlener meenemen </p>
                                 </div>
 
-                                <ul className="paragraf">
-                                    <li>Aanvraagformulier</li>
-                                    <li>Verzekeringspas</li>
-                                    <li>Identiteitsbewijs</li>
-                                </ul>
-                            </div>
+                                    <div className="text">
+                                         <BsCreditCard color="#79b9d5" fontSize="35px" />
+                                        <p> - Verzekeringspas meenemen</p>
+                                       
+                                </div>
+
+                                    <div className="text">
+                                        <AiOutlineIdcard color="#79b9d5" fontSize="35px" />
+                                        <p> - Identiteitsbewijs meenemen</p>
+                                    </div>
+                                </div>
                         </Collapsible>
 
                         <Collapsible title="Verloop onderzoek">
                             <div>
-                                <p>
-                                    De bloedafname vindt plaats terwijl u zit.<br/>
-                                    Er word een of meerdere buisjes bloed afgenomen door een medewerker die een prik aan u geeft in de binnenkant van uw elleboog,<br />
-                                    Hiervoor krijgt u een zogenaamde stuwband om uw arm.<br />
-                                    Tijdens de bloedafname geeft de medewerker aanwijzingen om het onderzoek zo snel en goed mogelijk te laten verlopen.<br />
-                                    De bloedafname duurt in de meeste gevallen niet langer dan vijf minuten.<br />
-                                    Mogelijk moet u wel even in de wachtkamer zitten voordat u aan de beurt bent.
-                                </p>
+                                <div className="text">
+                                    <MdOutlineChairAlt color="#79b9d5" fontSize="35px" />
+                                    <p> - Zittend bloedafname </p>
+                                </div>
+                                <div className="text">
+                                    <GiBandageRoll color="#79b9d5" fontSize="35px" />
+                                    <p> - Voorzien van een stuwband </p>
+                                </div>
+                                <div className="text">
+                                    <BsChatText color="#79b9d5" fontSize="35px" />
+                                    <p> - Volg de aanwijzingen van de medewerker </p>
+                                </div>
+                                <div className="text">
+                                    <IoIosTimer color="#79b9d5" fontSize="35px" />
+                                    <p> - Maximaal 5 minuten </p>
+                                </div>
                             </div>
                         </Collapsible>
 
                         <Collapsible title="Doorlooptijden en uitslag">
                             <div>
-                                <p>
-                                    De uitslag van het bloedonderzoek is meestal binnen enkele dagen bekend.<br />
-                                    We sturen deze direct door naar uw arts en/of verloskundige.<br />
-                                    Hij/zij zal de uitslag hierna met u bespreken.
-                                </p>
+                                <div className="text">
+                                    <AiOutlineFieldTime color="#79b9d5" fontSize="35px" />
+                                    <p> - Uitslag binnen enkele dagen</p>
+                                </div>
+                                <div className="text">
+                                    <BiPlusMedical color="#79b9d5" fontSize="35px" />
+                                    <p> - Direct toegestuurd naar uw arts of verloskundige</p>
+                                </div>
+                                <div className="text">
+                                    <BsTelephoneInbound color="#79b9d5" fontSize="35px" />
+                                    <p> - De arts of verloskundige neemt contact met u op</p>
+                                </div>
+
                             </div>
                         </Collapsible>
 
@@ -79,14 +103,61 @@ export default class Information extends React.Component {
                     </div>
                 </Collapsible>
 
-                <Collapsible src={meenemen} className="Icons">
-  
+                <Collapsible src={urine} className="Icons" className="Icons" title="Urineonderzoek">
+                    <Collapsible title="Wat is het doel van het onderzoek?">
+                        <div className="text">
+                            <BiBody color="#79b9d5" fontSize="35px" />
+                            <p> - Informatie over uw gezondheid </p>
+                        </div>
+                    </Collapsible>
+                    <Collapsible title="Voorbereiding">
+                        <div>
+                            <div className="text">
+                                <GiMasonJar color="#79b9d5" fontSize="35px" />
+                                <p> - Urinepotje ontvangen van zorgverlener</p>
+                            </div>
+                            <div className="text">
+                                <BiTestTube color="#79b9d5" fontSize="35px" />
+                                <p> - Urinebuisje ontvangen van zorgverlener </p>
+                            </div>
+                        </div>
+                    </Collapsible>
+
+                    <Collapsible title="Verloop onderzoek">
+                        <div>
+                            <img src={verloopOnderzoek} className="Picture" alt="verloop urineonderzoek" />
+                        </div>
+                    </Collapsible>
+
+                    <Collapsible title="Doorlooptijden en uitslag">
+                        <div>
+                            <div className="text">
+                                <AiOutlineFieldTime color="#79b9d5" fontSize="35px" />
+                                <p> - Uitslag na enkele dagen tot aan een week</p>
+                            </div>
+                            <div className="text">
+                                <BiPlusMedical color="#79b9d5" fontSize="35px" />
+                                <p> - Direct toegestuurd naar uw huisarts</p>
+                            </div>
+                            <div className="text">
+                                <BsTelephoneInbound color="#79b9d5" fontSize="35px" />
+                                <p> - De arts neemt contact met u op</p>
+                            </div>
+
+                        </div>
+                    </Collapsible>
+
                 </Collapsible>
 
-                <Collapsible src={corona} className="Icons">
-                    <div>
-                        <img src={coronamaatregels} alt="corona maatregels" width="400" height="300" />
+                <Collapsible src={corona} className="Icons" className="Icons" title="Coronamaatregelen">
+                    <div className="text">
+                        <MdSocialDistance color="#79b9d5" fontSize="35px" />
+                        <p> - 1.5m afstand </p>
                     </div>
+                    <div className="text">
+                        <RiSurgicalMaskLine color="#79b9d5" fontSize="35px" />
+                        <p> - Mondkapje verplicht </p>
+                        </div>
                 </Collapsible>
 
             </div>
