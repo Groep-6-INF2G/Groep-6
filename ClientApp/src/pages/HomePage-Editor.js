@@ -4,7 +4,8 @@ import { MdOutlineLocationOn } from 'react-icons/md';
 import { GiTestTubes } from 'react-icons/gi';
 import { BsArrowRightShort } from 'react-icons/bs';
 import { Editor } from '@tinymce/tinymce-react';
-class HomePageEditor extends React.Component {
+
+export default class HomePageEditor extends React.Component {
     constructor() {
         super();
 
@@ -14,6 +15,7 @@ class HomePageEditor extends React.Component {
             pagedata: undefined
         }
     }
+
     async componentDidMount() {
         let htmlPageData;
         const page = await fetch("api/wysiwyg?id=1", {
@@ -43,6 +45,7 @@ class HomePageEditor extends React.Component {
             body: JSON.stringify(homepageData)
         })
     }
+
     render() {
         return (
             <>
@@ -76,5 +79,3 @@ class HomePageEditor extends React.Component {
         )
     }
 }
-
-export default HomePageEditor;

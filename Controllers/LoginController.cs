@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
+﻿using Microsoft.AspNetCore.Mvc;
 using Git_clone.Models;
-using System.Collections.Generic;
 using System.Linq;
 using System;
 
@@ -23,18 +20,13 @@ namespace Git_clone.Controllers
         public ActionResult CheckLogin(LoginInfo loginInfo)
         {
             var users = _databaseContext.Users.ToList();
-            User userInfo = new();
-            Random rand = new Random();
 
-            if (users.FirstOrDefault(x => x.Email == loginInfo.Email && x.Password == loginInfo.Password) is User user)
-            {
-                HttpContext.Response.Cookies.Append("id", rand.Next().ToString(), new CookieOptions
-                {
-                    Expires = System.DateTimeOffset.Now.AddDays(1)
-                });
-
-                var jsonUser = JsonSerializer.Serialize(user);
-                return Ok(jsonUser);
+            if (users.FirstOrDefault(x => x.Email == loginInfo.Email && x.Password == loginInfo.Password) is not null)
+            { 
+                int vCode = Mailsend.sendmail(loginInfo.Email);
+                var person = Tuple.Create(loginInfo.Email, vCode, DateTime.Now.AddMinutes(10));
+                Program.Checker.PeopleList.Add(person);
+                return Ok();
             }
             else
             {

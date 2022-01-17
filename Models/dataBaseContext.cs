@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 
 namespace Git_clone.Models
 {
@@ -11,11 +9,6 @@ namespace Git_clone.Models
         public DbSet<Page> Pages { get; set; }
         public DbSet<Section> Sections { get; set; }
 
-        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
-        {
-
-        }
-
-
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) {}
     }
 }

@@ -1,11 +1,8 @@
-// Creator: Sharoek Mahboeb 1018492
-
 import React from "react";
+import dropdown from '../assets/images/dropdown.png';
 
-import dropdown from '../assets/images/dropdown.png'
 
-
-class Collapsible extends React.Component {
+export default class Collapsible extends React.Component {
     constructor(props) {
         super(props);
         this.state = { isOpen: false, height: 0 };
@@ -56,5 +53,3 @@ class Collapsible extends React.Component {
         </div>
     }
 }
-
-export default Collapsible;
