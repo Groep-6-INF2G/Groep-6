@@ -1,7 +1,7 @@
-﻿using Git_clone.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+using Git_clone.Models;
+using System.Linq;
+using System;
 
 namespace Git_clone.Controllers
 {
@@ -9,20 +9,29 @@ namespace Git_clone.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        [HttpPost]
-        public ActionResult CheckLogin(LoginInfo info)
-        {
-            if(info.Password == null && info.Email == null)
-            {
-                return BadRequest(); 
-            }
+        private DatabaseContext _databaseContext;
 
-            if(info.Password == "abc12345" && info.Email == "abc@abc.com")
-            {
-                return StatusCode(StatusCodes.Status200OK);
-            }
-            return BadRequest();
+        public LoginController(DatabaseContext databaseContext)
+        {
+            _databaseContext = databaseContext;
         }
 
+        [HttpPost]
+        public ActionResult CheckLogin(LoginInfo loginInfo)
+        {
+            var users = _databaseContext.Users.ToList();
+
+            if (users.FirstOrDefault(x => x.Email == loginInfo.Email && x.Password == loginInfo.Password) is not null)
+            { 
+                int vCode = Mailsend.sendmail(loginInfo.Email);
+                var person = Tuple.Create(loginInfo.Email, vCode, DateTime.Now.AddMinutes(10));
+                Program.Checker.PeopleList.Add(person);
+                return Ok();
+            }
+            else
+            {
+                return StatusCode(401);
+            }
+        }
     }
 }

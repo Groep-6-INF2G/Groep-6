@@ -3,13 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Git_clone.Models
 {
-    [Keyless]
     [Table("users")]
-    public class user
+    public class User
     {
-        public int userid { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
+        public int UserId { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }
 

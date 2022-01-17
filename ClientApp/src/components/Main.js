@@ -1,26 +1,32 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+import IsAuthenticated from './isAuthenticated'
 
-import Home from '../pages/HomePage';
-import Information from '../pages/Information';
-import Locations from '../pages/Locations';
-import Login from '../pages/Login'
-import HomeEdit from '../pages/HomePage-Editor'
-import LoggedIn from '../pages/LoggedIn'
+export default class Main extends React.Component {
+    constructor() {
+        super()
+        this.state = { isAuth: false };
 
-const Main = () => {
-  return (
-    <div className="content">
-      <Switch>
-        <Route exact path='/' component={Home}></Route>
-        <Route exact path='/Informatie' component={Information}></Route>
-        <Route exact path='/Locaties' component={Locations}></Route>
-        <Route exact path='/Inloggen' component={Login}></Route>
-        <Route exact path='/HomeEditor' component={HomeEdit}></Route>
-        <Route exact path='/Ingelogd' component={LoggedIn}></Route>
-      </Switch>
-    </div>
-  );
+        IsAuthenticated().then((res) => {
+            if (res === 200) {
+                this.setState({ isAuth: true })
+            }
+        })
+    }
+    render() {
+        if (this.state.isAuth) {
+            return (
+                <div id="content">
+                    <PrivateRoute />
+                </div>
+            );
+        }
+        return (
+            <div id="content">
+                <PublicRoute />
+            </div>
+            )
+        
+    }
 }
-
-export default Main;

@@ -15,7 +15,6 @@
     font-size: 15px;
 }
 
-
 .collapsible .content-parent{
     margin-top: 10px;
     overflow: hidden;
@@ -24,6 +23,7 @@
 #dropdown {
     transition: transform linear 0.2s;
 }
+
 .container {
     max-width: 100%;
     padding-right: 15px;
@@ -31,9 +31,11 @@
     margin-right: auto;
     margin-left: auto;
 }
+
 p {
     margin:0px;
 }
+
 h1 {
     font-size: 2.5rem;
     font-family: "Open Sans", sans-serif;
@@ -43,6 +45,7 @@ h1 {
     justify-content: center;
     margin: 10px;
 }
+
 h2 {
     font-size: 1.5rem;
     color: #142d49;
@@ -51,6 +54,7 @@ h2 {
     margin-bottom: 5px;
 
 }
+
 b {
     margin: 0;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -61,6 +65,7 @@ b {
     text-align: center;
     background-color: #fff;
 }
+
 .paragraf {
     margin: 0;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -69,9 +74,11 @@ b {
     line-height: 1.5;
     color: #212529;
 }
+
 ul.paragraf{
     padding-left: 22.5px;
 }
+
 .content {
     width: 100%;
     height: auto;
@@ -81,5 +88,3 @@ ul.paragraf{
     max-width: auto;
     height: auto;
 }
-
-
