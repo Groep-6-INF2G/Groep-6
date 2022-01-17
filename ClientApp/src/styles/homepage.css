@@ -1,38 +1,115 @@
-﻿.containerHome {
-    font-family: "Open Sans", sans-serif;
-    width: 100%;
-    background-image: linear-gradient( rgba(0,0,0, 0.50), rgba(0,0,0, 0.50)), url('../assets/images/homepageimage.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 255px;
-    background-color: white;
-    background-position: center;
+﻿﻿.containerHome {
+font-family: "Open Sans", sans-serif;
+width: 100%;
+background-image: linear-gradient( rgba(0,0,0, 0.50), rgba(0,0,0, 0.50)), url('../assets/images/homepageimage.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 255px;
+background-color: white;
+background-position: center;
+align-items: center;
 }
+
+a:link {
+text-decoration: none;
+}
+
+a:visited {
+text-decoration: none;
+}
+
+a:hover {
+color: black;
+}
+
+a:active {
+text-decoration: none;
+}
+
+.featureList {
+margin-top: 0rem;
+margin-bottom: 2.5rem;
+align-items: center;
+max-width: 1024px;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+padding-left: 45px;
+padding-right: 45px;
+}
+
+.featureList .item {
+margin: auto;
+align-items: center;
+max-width: 20rem;
+text-align: center;
+}
+
+.featureList .item .title {
+margin-top: 1rem;
+}
+
+.featureList .item .description {
+margin-top: 1rem;
+color: black;
+}
+
+.featureList .item a {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+height: 100%;
+margin-left: 1rem;
+margin-right: 1rem;
+padding: 2rem 1rem;
+border-radius: 0.25rem;
+}
+
+.featureList .item .link {
+display: flex;
+flex-direction: row;
+margin-top: 1rem;
+font-weight: bold;
+color: #e7334c;
+}
+
 .containerHome .text {
-    padding-top: 40px;
-    width: 75%;
-    color: white;
-    padding-left: 15px;
+padding-top: 40px;
+width: 75%;
+color: white;
+padding-left: 15px;
+}
+
+.containerHome .text .pSmall {
+padding-top: 7px;
 }
 
 .containerHome .text h1 {
-    color: white;
-    font-size: 1.75rem;
-    margin: 0;
+color: white;
+font-size: 1.75rem;
+margin: 0;
 }
 
 .inner-container {
-    padding: 15px;
+padding-left: 30px;
+padding-right: 30px;
+padding-bottom: 40px;
+}
+
+.inner-container p {
+padding-bottom: 15px;
 }
 
 .footerImage {
-    max-width:200px;
-    height:auto;
+max-width: 200px;
+height: auto;
 }
 
-.social-wrapper{
-    padding-top: 0.5rem;
+.social-wrapper {
+padding-top: 0.5rem;
 }
-.social-wrapper a{
-    padding-left: 1rem;
+
+.social-wrapper a {
+padding-left: 1rem;
 }

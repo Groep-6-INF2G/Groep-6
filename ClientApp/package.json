@@ -12,11 +12,14 @@
     "@tinymce/tinymce-react": "^3.13.0",
     "axios": "^0.24.0",
     "draft-js": "^0.11.7",
+    "html-react-parser": "^1.4.5",
     "jquery": "^3.6.0",
     "js-cookie": "^3.0.1",
+    "leaflet": "^1.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-leaflet": "^3.2.5",
     "react-notifications-component": "^3.1.0",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
@@ -35,16 +38,9 @@
       "react-app/jest"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }

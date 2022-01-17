@@ -17,11 +17,39 @@ import { IoIosTimer } from 'react-icons/io';
 
 
 
-export default class Information extends React.Component {
-    render() {
-        return (
-            <div className="container">
 
+export default class Information extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            pagedata: []
+        }
+    }
+    async componentDidMount() {
+        let htmlPageData;
+        const page = await fetch("api/wysiwyg?id=2", {
+            method: "GET",
+            headers: { 'Accept': 'apllication/json', 'Content-Type': 'application/json' },
+        }).then(response => response.json())
+            .then(response => {
+                htmlPageData = response
+                htmlPageData.sort((a, b) => parseFloat(a.sectionid) - parseFloat(b.sectionid));
+                console.log(htmlPageData)
+            }
+            )
+        this.setState({
+            pagedata: htmlPageData
+        });
+        console.log(this.state.pagedata)
+    }
+
+    render() {
+        if (this.state.pagedata[0] === null || this.state.pagedata[0] === undefined) {
+            return null
+        }
+        else {
+            return (
+                <div className="container">
                 <Collapsible src={syringe} className="Icons" title="Bloedafname">
                     <div>
 
@@ -100,8 +128,8 @@ export default class Information extends React.Component {
                             {<video src={video1} width="1024" height="576" controls />}
                         </Collapsible>
 
-                    </div>
-                </Collapsible>
+                        </div>
+                    </Collapsible>
 
                 <Collapsible src={urine} className="Icons" className="Icons" title="Urineonderzoek">
                     <Collapsible title="Wat is het doel van het onderzoek?">
@@ -160,8 +188,9 @@ export default class Information extends React.Component {
                         </div>
                 </Collapsible>
 
-            </div>
-        )
-       
+
+                </div>
+            )
+        }
     }
 }
