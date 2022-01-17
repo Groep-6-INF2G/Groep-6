@@ -17,7 +17,7 @@ namespace Git_clone.Controllers
         }
 
         [HttpPost]
-        public ActionResult CheckLogin(LoginInfo loginInfo)
+        public StatusCodeResult CheckLogin(LoginInfo loginInfo)
         {
             var users = _databaseContext.Users.ToList();
 

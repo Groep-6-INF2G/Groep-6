@@ -7,10 +7,9 @@ namespace Git_clone
 {
     public class Program
     {
-        public static ListChecker Checker { get; set; }
+        public static ListChecker Checker { get; set; } = new ListChecker();
         public static void Main(string[] args)
         {
-            Checker = new ListChecker();
             var pthread = new Thread(Checker.CheckVerification);
             pthread.IsBackground = true;
             pthread.Start();
