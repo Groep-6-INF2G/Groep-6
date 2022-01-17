@@ -3,16 +3,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Git_clone.Models
 {
-    [Table("locations")]
+    [Table("Locations")]
     [Keyless]
     public class Location
     {
-        public string location { get; set; }
-        public string locationdescription { get; set; }
-        public string address { get; set; }
-        public string postalcode { get; set; }
-        public string locationtime { get; set; }
-        public string appointmentdescription { get; set; }
+        public int id { get; set; }
+        public string city { get; set; }
+        public string locationname { get; set; }
+        public string street { get; set; }
+        public string postcode { get; set; }
+        public string openinghours { get; set; }
+        public string particularities { get; set; }
+        public double lat { get; set; }
+        public double lon { get; set; }
     }
 
 }

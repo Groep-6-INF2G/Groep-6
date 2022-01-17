@@ -1,5 +1,5 @@
 import React from "react";
-import dropdown from '../assets/images/dropdown.png'
+import dropdown from '../assets/images/dropdown.png';
 
 
 export default class Collapsible extends React.Component {
