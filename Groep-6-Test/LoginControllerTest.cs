@@ -25,7 +25,7 @@ namespace Groep_6_Test
             var loginInfo = new LoginInfo()
             {
                 Email = "oscar.vugt@gmail.com",
-                Password = "pass123"
+                Password = "test123"
             };
             var result = _controller.CheckLogin(loginInfo);
             var expected = new StatusCodeResult(200);

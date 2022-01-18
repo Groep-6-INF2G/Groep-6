@@ -33,7 +33,7 @@ namespace Git_clone.Controllers
         }
         [Route("page")]
         [HttpPost]
-        public ActionResult InsertPage(Page htmlData)
+        public StatusCodeResult InsertPage(Page htmlData)
         {
             if (htmlData.pageData != null)
             {
@@ -43,7 +43,7 @@ namespace Git_clone.Controllers
                 {
                     result.pageData = htmlData.pageData;
                     _databaseContext.SaveChanges();
-                    return StatusCode(StatusCodes.Status200OK);
+                    return Ok();
                 }
             }
 
@@ -52,7 +52,7 @@ namespace Git_clone.Controllers
         [Route("section")]
         [HttpPost]
         
-        public ActionResult InsertSection(Section htmlData)
+        public StatusCodeResult InsertSection(Section htmlData)
         {
             if (htmlData.sectiondata != null)
             {
@@ -62,7 +62,7 @@ namespace Git_clone.Controllers
                 {
                     result.sectiondata = htmlData.sectiondata;
                     _databaseContext.SaveChanges();
-                    return StatusCode(StatusCodes.Status200OK);
+                    return Ok();
                 }
             }
 
