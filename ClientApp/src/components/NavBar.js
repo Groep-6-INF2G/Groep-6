@@ -24,7 +24,7 @@ export default class NavBar extends React.Component {
                     <nav>
                         <ul>
                             <li><Link to="/HomeEditor"><img src={home} alt="Startpagina" /></Link></li>
-                            <li><Link to="/Informatie"><img src={info} alt="Informatie" /></Link></li>
+                            <li><Link to="/InfoEditor"><img src={info} alt="Informatie" /></Link></li>
                             <li><Link to="/Locaties"><img src={map} alt="Locaties" /></Link></li>
                         </ul>
                     </nav>
