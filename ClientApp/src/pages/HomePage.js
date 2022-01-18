@@ -15,7 +15,7 @@ export default class HomePage extends React.Component {
         let htmlPageData;
         await fetch("api/wysiwyg?id=1", {
             method: "GET",
-            headers: { 'Accept': 'apllication/json', 'Content-Type': 'application/json' },
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
         }
         ).then(response => response.json())
             .then(response => {
