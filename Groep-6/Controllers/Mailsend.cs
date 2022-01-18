@@ -2,9 +2,9 @@
 using System.Net;
 using System.Net.Mail;
 
-namespace Git_clone
+namespace Git_clone.Controllers
 {
-    class Mailsend
+    public class Mailsend
     {
         public static int sendmail(string emailadr) {
             Random rnd = new Random();
@@ -21,16 +21,17 @@ namespace Git_clone
                 }
             };
             MailAddress FromEmail = new MailAddress("starverifytotop@gmail.com", "Star Shl");
-            MailAddress ToEmail = new MailAddress(emailadr);
-            MailMessage message = new MailMessage() {
-                From = FromEmail,
-                Subject = $"Your verification code is {vCode}",
-                Body = $"Hello, your verification code is {vCode}. Please enter this code within the next 10 minutes. This code is not re-usable."
-            };
-            message.To.Add(ToEmail);
-            Console.WriteLine("before sending");
             try 
             {
+                MailAddress ToEmail = new MailAddress(emailadr);
+                MailMessage message = new MailMessage()
+                {
+                    From = FromEmail,
+                    Subject = $"Your verification code is {vCode}",
+                    Body = $"Hello, your verification code is {vCode}. Please enter this code within the next 10 minutes. This code is not re-usable."
+                };
+                message.To.Add(ToEmail);
+                Console.WriteLine("before sending");
                 client.Send(message);
                 Console.WriteLine("SENT!");
                 return vCode;

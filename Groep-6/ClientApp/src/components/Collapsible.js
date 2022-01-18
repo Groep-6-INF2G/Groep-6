@@ -35,7 +35,7 @@ export default class Collapsible extends React.Component {
                 style={this.state.isOpen ?
                     {
                         //The current height of the content when the element is open
-                        maxHeight: "4000px",
+                        maxHeight: "4001px",
                         transition: 'max-height cubic-bezier(0.4, 0, 1, 1) 1s',
 
                     }

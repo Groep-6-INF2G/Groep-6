@@ -27,22 +27,18 @@ text-decoration: none;
 }
 
 .featureList {
-margin-top: 0rem;
-margin-bottom: 2.5rem;
 align-items: center;
 max-width: 20rem;
-margin-left: auto;
-margin-right: auto;
+margin: 0 auto 2.5rem;
 text-align: center;
-padding-left: 45px;
-padding-right: 45px;
+padding: 0 45px;
 }
 
 .featureList .item {
-margin: auto;
 align-items: center;
-width: 20rem;
+max-width: 20rem;
 text-align: center;
+margin: auto;
 }
 
 .featureList .item .title {
@@ -62,7 +58,7 @@ text-align: center;
 height: 100%;
 margin-left: 1rem;
 margin-right: 1rem;
-padding: 2rem 1rem;
+padding: 1rem 1rem;
 border-radius: 0.25rem;
 }
 
@@ -94,7 +90,6 @@ margin: 0;
 .inner-container {
 padding-left: 30px;
 padding-right: 30px;
-padding-bottom: 40px;
 }
 
 .inner-container p {
