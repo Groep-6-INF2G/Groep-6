@@ -3,13 +3,16 @@ import syringe from '../../src/assets/images/syringe.png';
 import Collapsible from "../components/Collapsible";
 import video1 from "../../src/assets/videos/Wat gebeurt er met mijn bloed_.mp4";
 import corona from '../../src/assets/images/corona.png';
-import coronamaatregels from '../../src/assets/images/coronamaatregels.jpg';
+import urine from '../../src/assets/images/urine.png';
+import verloopOnderzoek from '../../src/assets/images/verloopOnderzoek.png';
 import '../styles/information.css';
-import meenemen from '../../src/assets/images/meenemen.png';
-import passport from '../../src/assets/images/passport.png';
-import goal from '../../src/assets/images/goal.png';
-import info from '../../src/assets/images/info.png';
-
+import { MdOutlineChairAlt, MdSocialDistance } from 'react-icons/md';
+import { BiBody, BiPlusMedical, BiTestTube } from 'react-icons/bi';
+import { AiOutlineIdcard, AiOutlineFieldTime } from 'react-icons/ai';
+import { BsCreditCard, BsChatText, BsCalendarCheck, BsTelephoneInbound } from 'react-icons/bs';
+import { RiFileTextLine, RiSurgicalMaskLine } from 'react-icons/ri';
+import { GiBandageRoll, GiMasonJar } from 'react-icons/gi';
+import { IoIosTimer } from 'react-icons/io';
 
 export default class Information extends React.Component {
     constructor() {
@@ -28,12 +31,19 @@ export default class Information extends React.Component {
                 htmlPageData = response
                 htmlPageData.sort((a, b) => parseFloat(a.sectionid) - parseFloat(b.sectionid));
                 console.log(htmlPageData)
+                try {
+                    this.setState({
+                        pagedata: htmlPageData
+                    });
+                    console.log(this.state.pagedata)
+                }
+                catch (e) {
+                    console.log(this)
+                    console.log(e)
+                }
             }
             )
-        this.setState({
-            pagedata: htmlPageData
-        });
-        console.log(this.state.pagedata)
+
     }
 
     render() {
@@ -42,51 +52,147 @@ export default class Information extends React.Component {
         }
         else {
             return (
+                
                 <div className="container">
+                    {console.log(this.state)}
+                <Collapsible src={syringe} className="Icons" title="Bloedafname">
+                    <div>
 
-                    <Collapsible src={syringe} className="Icons" title="Bloed prikken">
-                        <div>
+                        <Collapsible title="Wat is het doel van bloedafname?">
 
-                            <Collapsible title="Wat is het doel van bloedprikken?">
-                                <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[0].sectiondata }}></div>
-                            </Collapsible>
+                                <div className="text">
+                                    <BiBody color="#79b9d5" fontSize="35px" />
+                                    <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[0].sectiondata }}></div>
+                                </div> 
+                        </Collapsible>
 
-                            <Collapsible title="Voorbereiding">
-                                <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[1].sectiondata }}></div>
-                            </Collapsible>
-
-                            <Collapsible title="Verloop onderzoek">
-                                <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[2].sectiondata }}></div>
-                            </Collapsible>
-
-                            <Collapsible title="Doorlooptijden en uitslag">
-                                <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[3].sectiondata }}></div>
-                            </Collapsible>
-
-                            <Collapsible title="Video">
-                                {<video src={video1} width="1024" height="576" controls />}
-                            </Collapsible>
-
-                        </div>
-                    </Collapsible>
-
-                    <Collapsible src={meenemen} className="Icons">
-                        <div>
-                            <Collapsible src={passport}>
-                                <div>
-                                    <img src={syringe} alt="" width="400" height="300" />
+                        <Collapsible title="Voorbereiding">
+                            <div>
+                                <div className="text">
+                                    <BsCalendarCheck color="#79b9d5" fontSize="35px" />
+                                        <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[1].sectiondata }}></div>
                                 </div>
-                            </Collapsible>
-                            <img src={goal} alt="" width="400" height="300" />
-                            <img src={info} alt="" width="400" height="300" />
+                                    <div className="text">
+                                        <RiFileTextLine color="#79b9d5" fontSize="35px"/>
+                                        <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[2].sectiondata }}></div>
+                                </div>
+
+                                    <div className="text">
+                                         <BsCreditCard color="#79b9d5" fontSize="35px" />
+                                        <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[3].sectiondata }}></div>
+                                       
+                                </div>
+
+                                    <div className="text">
+                                        <AiOutlineIdcard color="#79b9d5" fontSize="35px" />
+                                        <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[4].sectiondata }}></div>
+                                    </div>
+                                </div>
+                        </Collapsible>
+
+                        <Collapsible title="Verloop onderzoek">
+                            <div>
+                                <div className="text">
+                                    <MdOutlineChairAlt color="#79b9d5" fontSize="35px" />
+                                        <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[5].sectiondata }}></div>
+                                </div>
+                                <div className="text">
+                                    <GiBandageRoll color="#79b9d5" fontSize="35px" />
+                                        <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[6].sectiondata }}></div>
+                                </div>
+                                <div className="text">
+                                    <BsChatText color="#79b9d5" fontSize="35px" />
+                                        <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[7].sectiondata }}></div>
+                                </div>
+                                <div className="text">
+                                    <IoIosTimer color="#79b9d5" fontSize="35px" />
+                                        <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[8].sectiondata }}></div>
+                                </div>
+                            </div>
+                        </Collapsible>
+
+                        <Collapsible title="Doorlooptijden en uitslag">
+                            <div>
+                                <div className="text">
+                                    <AiOutlineFieldTime color="#79b9d5" fontSize="35px" />
+                                        <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[9].sectiondata }}></div>
+                                </div>
+                                <div className="text">
+                                    <BiPlusMedical color="#79b9d5" fontSize="35px" />
+                                        <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[10].sectiondata }}></div>
+                                </div>
+                                <div className="text">
+                                    <BsTelephoneInbound color="#79b9d5" fontSize="35px" />
+                                        <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[11].sectiondata }}></div>
+                                </div>
+
+                            </div>
+                        </Collapsible>
+
+                        <Collapsible title="Wat gebeurt er met mijn bloed?">
+                            {<video src={video1} width="1024" height="576" controls />}
+                        </Collapsible>
+
                         </div>
                     </Collapsible>
 
-                    <Collapsible src={corona} className="Icons">
-                        <div>
-                            <img src={coronamaatregels} alt="corona maatregels" width="400" height="300" />
+                <Collapsible src={urine} className="Icons" className="Icons" title="Urineonderzoek">
+                    <Collapsible title="Wat is het doel van het onderzoek?">
+                        <div className="text">
+                            <BiBody color="#79b9d5" fontSize="35px" />
+                                <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[12].sectiondata }}></div>
                         </div>
                     </Collapsible>
+                    <Collapsible title="Voorbereiding">
+                        <div>
+                            <div className="text">
+                                <GiMasonJar color="#79b9d5" fontSize="35px" />
+                                    <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[13].sectiondata }}></div>
+                            </div>
+                            <div className="text">
+                                <BiTestTube color="#79b9d5" fontSize="35px" />
+                                    <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[14].sectiondata }}></div>
+                            </div>
+                        </div>
+                    </Collapsible>
+
+                    <Collapsible title="Verloop onderzoek">
+                        <div>
+                            <img src={verloopOnderzoek} className="Picture" alt="verloop urineonderzoek" />
+                        </div>
+                    </Collapsible>
+
+                    <Collapsible title="Doorlooptijden en uitslag">
+                        <div>
+                            <div className="text">
+                                <AiOutlineFieldTime color="#79b9d5" fontSize="35px" />
+                                    <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[15].sectiondata }}></div>
+                            </div>
+                            <div className="text">
+                                <BiPlusMedical color="#79b9d5" fontSize="35px" />
+                                    <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[16].sectiondata }}></div>
+                            </div>
+                            <div className="text">
+                                <BsTelephoneInbound color="#79b9d5" fontSize="35px" />
+                                    <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[17].sectiondata }}></div>
+                            </div>
+
+                        </div>
+                    </Collapsible>
+
+                </Collapsible>
+
+                <Collapsible src={corona} className="Icons" className="Icons" title="Coronamaatregelen">
+                    <div className="text">
+                        <MdSocialDistance color="#79b9d5" fontSize="35px" />
+                            <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[18].sectiondata }}></div>
+                    </div>
+                    <div className="text">
+                        <RiSurgicalMaskLine color="#79b9d5" fontSize="35px" />
+                            <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[19].sectiondata }}></div>
+                        </div>
+                </Collapsible>
+
 
                 </div>
             )
