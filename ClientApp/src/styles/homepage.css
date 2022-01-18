@@ -41,7 +41,7 @@ padding-right: 45px;
 .featureList .item {
 margin: auto;
 align-items: center;
-max-width: 20rem;
+width: 20rem;
 text-align: center;
 }
 
