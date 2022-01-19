@@ -1,8 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Git_clone.Controllers;
-using Git_clone.Models;
+using Groep6.Controllers;
+using Groep6.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,7 +10,7 @@ namespace Groep_6_Test
     [TestClass]
     public class LocationsControllerTest
     {
-        LocationsController _controller;
+        private readonly LocationsController _controller;
         public LocationsControllerTest()
         {
             DbContextOptionsBuilder<DatabaseContext> dbContextOptionsBuilder = new();
@@ -30,7 +29,7 @@ namespace Groep_6_Test
             int expected_2 = 126;
             int expected_3 = 169;
             //Act
-            List<Location> results = _controller.GetClosest(input).ToList();
+            List<LocationModel> results = _controller.GetClosest(input).ToList();
             int actual_1 = results[0].id;
             int actual_2 = results[1].id;
             int actual_3 = results[2].id;
@@ -48,7 +47,7 @@ namespace Groep_6_Test
             int expected_2 = 126;
             int expected_3 = 169;
             //Act
-            List<Location> results = _controller.GetClosest(input).ToList();
+            List<LocationModel> results = _controller.GetClosest(input).ToList();
             int actual_1 = results[0].id;
             int actual_2 = results[1].id;
             int actual_3 = results[2].id;

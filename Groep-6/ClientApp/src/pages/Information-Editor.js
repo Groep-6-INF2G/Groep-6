@@ -29,7 +29,6 @@ export default class InfoEditor extends React.Component {
         let htmlPageData;
         await fetch("api/wysiwyg?id=2", {
             method: "GET",
-            headers: { 'Accept': 'apllication/json', 'Content-Type': 'application/json' },
         }).then(response => response.json())
             .then(response => {
                 htmlPageData = response

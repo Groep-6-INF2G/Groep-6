@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System;
 
-namespace Git_clone.Controllers
+namespace Groep6.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

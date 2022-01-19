@@ -20,7 +20,6 @@ export default class HomePageEditor extends React.Component {
         let htmlPageData;
         await fetch("api/wysiwyg?id=1", {
             method: "GET",
-            headers: { 'Accept': 'apllication/json', 'Content-Type': 'application/json' },
             }
         ).then(response => response.json())
             .then(response => {
@@ -41,7 +40,6 @@ export default class HomePageEditor extends React.Component {
         e.preventDefault();
         fetch("api/wysiwyg/page", {
             method: "POST",
-            headers: { 'Accept': 'apllication/json', 'Content-Type': 'application/json' },
             body: JSON.stringify(homepageData)
         })
     }

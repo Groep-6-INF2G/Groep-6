@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Git_clone.Controllers;
-using Git_clone.Models;
+using Groep6.Controllers;
+using Groep6.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +9,7 @@ namespace Groep_6_Test
     [TestClass]
     public class LoginControllerTest
     {
-        LoginController _controller;
+        private readonly LoginController _controller;
         public LoginControllerTest()
         {
             DbContextOptionsBuilder<DatabaseContext> dbContextOptionsBuilder = new();
@@ -20,9 +20,9 @@ namespace Groep_6_Test
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void CheckLoginWithCorrectInformation()
         {
-            var loginInfo = new LoginInfo()
+            var loginInfo = new LoginInfoModel()
             {
                 Email = "oscar.vugt@gmail.com",
                 Password = "test123"
@@ -33,9 +33,9 @@ namespace Groep_6_Test
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void CheckLoginWithWrongInformation()
         {
-            var loginInfo = new LoginInfo()
+            var loginInfo = new LoginInfoModel()
             {
                 Email = "oscar.vugt@gmail.com",
                 Password = "wrong_password"

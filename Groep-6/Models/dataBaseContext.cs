@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Git_clone.Models
+namespace Groep6.Models
 {
     public class DatabaseContext : DbContext
     {
-        public DbSet<User>Users { get; set; }
-        public DbSet<Location>Locations { get; set; }
-        public DbSet<Page> Pages { get; set; }
-        public DbSet<Section> Sections { get; set; }
+        public DbSet<UserModel> Users { get; set; }
+        public DbSet<LocationModel> Locations { get; set; }
+        public DbSet<PageModel> Pages { get; set; }
+        public DbSet<SectionModel> Sections { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) {}
     }

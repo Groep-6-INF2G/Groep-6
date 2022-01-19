@@ -1,39 +1,40 @@
-﻿using Git_clone.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Groep6.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Linq;
 
-namespace Git_clone.Controllers
+namespace Groep6.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class WysiwygController : ControllerBase
     {
-        private DatabaseContext _databaseContext;
+        private readonly DatabaseContext _databaseContext;
 
         public WysiwygController(DatabaseContext databaseContext)
         {
             _databaseContext = databaseContext;
         }
 
+        //Return a section array or page
         [HttpGet]
         public string Get(int id)
         {
-            var p = _databaseContext.Pages.SingleOrDefault(x => x.pageId == id);
-            if (p.pageData == null)
+            var page = _databaseContext.Pages.SingleOrDefault(dbPage => dbPage.pageId == id);
+            if (page.pageData == null)
             {
-                var s = _databaseContext.Sections.Where(x => x.pageid == id);
-                Console.WriteLine(JsonConvert.SerializeObject(s));
-                return JsonConvert.SerializeObject(s);
+                var section = _databaseContext.Sections.Where(dbSection => dbSection.pageid == id);
+                Console.WriteLine(JsonConvert.SerializeObject(section));
+                return JsonConvert.SerializeObject(section);
             }
-            Console.WriteLine(JsonConvert.SerializeObject(p));
-            return JsonConvert.SerializeObject(p);
+            Console.WriteLine(JsonConvert.SerializeObject(page));
+            return JsonConvert.SerializeObject(page);
         }
+
         [Route("page")]
         [HttpPost]
-        public StatusCodeResult InsertPage(Page htmlData)
+        public StatusCodeResult InsertPage(PageModel htmlData)
         {
             if (htmlData.pageData != null)
             {
@@ -49,15 +50,15 @@ namespace Git_clone.Controllers
 
             return BadRequest();
         }
+
         [Route("section")]
         [HttpPost]
-        
-        public StatusCodeResult InsertSection(Section htmlData)
+        public StatusCodeResult InsertSection(SectionModel htmlData)
         {
             if (htmlData.sectiondata != null)
             {
                 Console.WriteLine(htmlData.sectiondata);
-                var result = _databaseContext.Sections.SingleOrDefault(s => s.pageid == htmlData.pageid && s.sectionid == htmlData.sectionid);
+                var result = _databaseContext.Sections.SingleOrDefault(section => section.pageid == htmlData.pageid && section.sectionid == htmlData.sectionid);
                 if (result != null)
                 {
                     result.sectiondata = htmlData.sectiondata;

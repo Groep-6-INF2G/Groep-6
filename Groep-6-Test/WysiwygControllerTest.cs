@@ -1,14 +1,13 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Git_clone.Controllers;
-using Git_clone.Models;
+using Groep6.Controllers;
+using Groep6.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
 namespace Groep_6_Test
 {
     [TestClass]
     public class WysiwygControllerTest
     {
-        WysiwygController _controller;
+        private readonly WysiwygController _controller;
         public WysiwygControllerTest()
         {
             DbContextOptionsBuilder<DatabaseContext> dbContextOptionsBuilder = new();
@@ -50,7 +49,7 @@ namespace Groep_6_Test
         [TestMethod]
         public void InsertPageTest()
         {
-            Page page = new();
+            PageModel page = new();
             page.pageId = -3;
             page.pageData = "test";
             _controller.InsertPage(page);
@@ -61,7 +60,7 @@ namespace Groep_6_Test
         [TestMethod]
         public void InsertPageWrongTest()
         {
-            Page page = new();
+            PageModel page = new();
             page.pageId = -3;
             page.pageData = "notTest";
             _controller.InsertPage(page);
@@ -72,7 +71,7 @@ namespace Groep_6_Test
         [TestMethod]
         public void InsertSectionTest()
         {
-            Section section = new();
+            SectionModel section = new();
             section.sectionid = -3;
             section.sectiondata = "test";
             section.pageid = -4;
@@ -85,7 +84,7 @@ namespace Groep_6_Test
         [TestMethod]
         public void InsertSectionWrongTest()
         {
-            Section section = new();
+            SectionModel section = new();
             section.sectionid = -3;
             section.sectiondata = "notTest";
             section.pageid = -4;

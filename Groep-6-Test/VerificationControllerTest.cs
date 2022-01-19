@@ -1,31 +1,22 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Git_clone.Controllers;
-using Git_clone.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
+using Groep6.Utils;
 
 namespace Groep_6_Test
 {
     [TestClass]
     public class VerificationControllerTest
     {
-        VerificationController _controller;
-        public VerificationControllerTest()
-        {
-            _controller = new VerificationController();
-        }
-
         [TestMethod]
         public void MailSendsCorrectly()
         {
-            var result = Mailsend.sendmail("brentdbr@hotmail.nl");
+            var result = MailUtil.SendMail("brentdbr@hotmail.nl");
             Assert.AreNotEqual(0, result);
         }
 
         [TestMethod]
         public void MailIsInvalid()
         {
-            var result = Mailsend.sendmail("invalidEmail");
+            var result = MailUtil.SendMail("invalidEmail");
             Assert.AreEqual(0, result);
         }
     }

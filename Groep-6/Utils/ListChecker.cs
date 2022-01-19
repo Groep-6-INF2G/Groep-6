@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 
-namespace Git_clone.Controllers
+namespace Groep6.Utils
 {
     public class ListChecker
     {
-        public List<Tuple<string, int, DateTime>> PeopleList { get; set; }
+        public List<Tuple<string, int, DateTime>> PeopleList { get; }
         public ListChecker()
         {
             PeopleList = new List<Tuple<string, int, DateTime>>();
