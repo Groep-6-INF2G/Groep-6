@@ -49,7 +49,7 @@ namespace Groep_6_Test
         [TestMethod]
         public void InsertPageTest()
         {
-            PageModel page = new();
+            Page page = new();
             page.pageId = -3;
             page.pageData = "test";
             _controller.InsertPage(page);
@@ -60,7 +60,7 @@ namespace Groep_6_Test
         [TestMethod]
         public void InsertPageWrongTest()
         {
-            PageModel page = new();
+            Page page = new();
             page.pageId = -3;
             page.pageData = "notTest";
             _controller.InsertPage(page);
@@ -71,7 +71,7 @@ namespace Groep_6_Test
         [TestMethod]
         public void InsertSectionTest()
         {
-            SectionModel section = new();
+            Section section = new();
             section.sectionid = -3;
             section.sectiondata = "test";
             section.pageid = -4;
@@ -84,7 +84,7 @@ namespace Groep_6_Test
         [TestMethod]
         public void InsertSectionWrongTest()
         {
-            SectionModel section = new();
+            Section section = new();
             section.sectionid = -3;
             section.sectiondata = "notTest";
             section.pageid = -4;

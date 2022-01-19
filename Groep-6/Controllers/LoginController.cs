@@ -18,7 +18,7 @@ namespace Groep6.Controllers
         }
 
         [HttpPost]
-        public StatusCodeResult CheckLogin(LoginInfoModel loginInfo)
+        public StatusCodeResult CheckLogin(LoginInfo loginInfo)
         {
             var users = _databaseContext.Users.ToList();
 

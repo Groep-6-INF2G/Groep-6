@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Groep6.Models
 {
     [Table("users")]
-    public class UserModel
+    public class User
     {
         public int UserId { get; set; }
         public string Email { get; set; }

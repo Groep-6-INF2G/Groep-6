@@ -22,7 +22,7 @@ namespace Groep_6_Test
         [TestMethod]
         public void CheckLoginWithCorrectInformation()
         {
-            var loginInfo = new LoginInfoModel()
+            var loginInfo = new LoginInfo()
             {
                 Email = "oscar.vugt@gmail.com",
                 Password = "test123"
@@ -35,7 +35,7 @@ namespace Groep_6_Test
         [TestMethod]
         public void CheckLoginWithWrongInformation()
         {
-            var loginInfo = new LoginInfoModel()
+            var loginInfo = new LoginInfo()
             {
                 Email = "oscar.vugt@gmail.com",
                 Password = "wrong_password"

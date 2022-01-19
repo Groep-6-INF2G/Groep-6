@@ -29,7 +29,7 @@ namespace Groep_6_Test
             int expected_2 = 126;
             int expected_3 = 169;
             //Act
-            List<LocationModel> results = _controller.GetClosest(input).ToList();
+            List<Location> results = _controller.GetClosest(input).ToList();
             int actual_1 = results[0].id;
             int actual_2 = results[1].id;
             int actual_3 = results[2].id;
@@ -47,7 +47,7 @@ namespace Groep_6_Test
             int expected_2 = 126;
             int expected_3 = 169;
             //Act
-            List<LocationModel> results = _controller.GetClosest(input).ToList();
+            List<Location> results = _controller.GetClosest(input).ToList();
             int actual_1 = results[0].id;
             int actual_2 = results[1].id;
             int actual_3 = results[2].id;

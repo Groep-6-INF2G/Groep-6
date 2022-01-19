@@ -19,13 +19,13 @@ namespace Groep6.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<LocationModel> GetAll()
+        public IEnumerable<Location> GetAll()
         {
             return _databaseContext.Locations;
         }
 
         [HttpGet("{coordsString}")]
-        public IEnumerable<LocationModel> GetClosest(string coordsString)
+        public IEnumerable<Location> GetClosest(string coordsString)
         {
             double[] coords = JsonSerializer.Deserialize<double[]>(coordsString);
             var closest = (from loc in _databaseContext.Locations select loc)

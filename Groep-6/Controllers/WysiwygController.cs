@@ -34,7 +34,7 @@ namespace Groep6.Controllers
 
         [Route("page")]
         [HttpPost]
-        public StatusCodeResult InsertPage(PageModel htmlData)
+        public StatusCodeResult InsertPage(Page htmlData)
         {
             if (htmlData.pageData != null)
             {
@@ -53,7 +53,7 @@ namespace Groep6.Controllers
 
         [Route("section")]
         [HttpPost]
-        public StatusCodeResult InsertSection(SectionModel htmlData)
+        public StatusCodeResult InsertSection(Section htmlData)
         {
             if (htmlData.sectiondata != null)
             {

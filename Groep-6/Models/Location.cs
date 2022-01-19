@@ -5,7 +5,7 @@ namespace Groep6.Models
 {
     [Table("Locations")]
     [Keyless]
-    public class LocationModel
+    public class Location
     {
         public int id { get; set; }
         public string city { get; set; }

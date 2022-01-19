@@ -17,7 +17,7 @@ namespace Groep6.Controllers
     {
 
         [HttpPost]
-        public async Task<ActionResult> CheckLoginAsync(VerificationInfoModel veriInfo)
+        public async Task<ActionResult> CheckLoginAsync(VerificationInfo veriInfo)
         {
             //Send an error when no information is provided
             if (veriInfo.Email == null && veriInfo.Code == null)
