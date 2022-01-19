@@ -4,7 +4,7 @@ using Groep6.Utils;
 namespace Groep_6_Test
 {
     [TestClass]
-    public class VerificationControllerTest
+    public class MailSendTest
     {
         [TestMethod]
         public void MailSendsCorrectly()
