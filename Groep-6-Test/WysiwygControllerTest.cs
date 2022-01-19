@@ -63,7 +63,7 @@ namespace Groep_6_Test
         {
             Page page = new();
             page.pageId = -3;
-            page.pageData = "test";
+            page.pageData = "notTest";
             _controller.InsertPage(page);
             var result = _controller.Get(-3);
             var expected = "NotTheResult";
@@ -87,7 +87,7 @@ namespace Groep_6_Test
         {
             Section section = new();
             section.sectionid = -3;
-            section.sectiondata = "test";
+            section.sectiondata = "notTest";
             section.pageid = -4;
 
             _controller.InsertSection(section);
