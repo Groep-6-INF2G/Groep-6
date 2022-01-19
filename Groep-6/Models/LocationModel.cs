@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Git_clone.Models
+namespace Groep6.Models
 {
     [Table("Locations")]
     [Keyless]
-    public class Location
+    public class LocationModel
     {
         public int id { get; set; }
         public string city { get; set; }

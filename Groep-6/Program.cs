@@ -1,17 +1,19 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using System.Threading;
-using Git_clone.Controllers;
+using Groep6.Utils;
 
-namespace Git_clone
+namespace Groep6
 {
     public class Program
     {
         public static ListChecker Checker { get; set; } = new ListChecker();
         public static void Main(string[] args)
         {
-            var pthread = new Thread(Checker.CheckVerification);
-            pthread.IsBackground = true;
+            var pthread = new Thread(Checker.CheckVerification)
+            {
+                IsBackground = true
+            };
             pthread.Start();
             CreateHostBuilder(args).Build().Run();
         }

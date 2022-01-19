@@ -1,15 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Git_clone.Models;
+using Groep6.Models;
+using Groep6.Utils;
 using System.Linq;
 using System;
 
-namespace Git_clone.Controllers
+namespace Groep6.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
     {
-        private DatabaseContext _databaseContext;
+        private readonly DatabaseContext _databaseContext;
 
         public LoginController(DatabaseContext databaseContext)
         {
@@ -17,13 +18,13 @@ namespace Git_clone.Controllers
         }
 
         [HttpPost]
-        public StatusCodeResult CheckLogin(LoginInfo loginInfo)
+        public StatusCodeResult CheckLogin(LoginInfoModel loginInfo)
         {
             var users = _databaseContext.Users.ToList();
 
-            if (users.FirstOrDefault(x => x.Email == loginInfo.Email && x.Password == loginInfo.Password) is not null)
+            if (users.FirstOrDefault(dbUser => dbUser.Email == loginInfo.Email && dbUser.Password == loginInfo.Password) is not null)
             { 
-                int vCode = Mailsend.sendmail(loginInfo.Email);
+                int vCode = MailUtil.SendMail(loginInfo.Email);
                 var person = Tuple.Create(loginInfo.Email, vCode, DateTime.Now.AddMinutes(10));
                 Program.Checker.PeopleList.Add(person);
                 return Ok();

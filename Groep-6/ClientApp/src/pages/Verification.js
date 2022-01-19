@@ -1,6 +1,6 @@
 import React from 'react'
 import { store } from 'react-notifications-component';
-import '../styles/VerificationStyle.css'
+import '../styles/verification.css'
 
 export default class Verification extends React.Component {
 
@@ -25,7 +25,7 @@ export default class Verification extends React.Component {
             headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: localStorage.getItem('email'), code: this.state.code })
         })
-        if (response.status == 200) {
+        if (response.status === 200) {
             localStorage.setItem('loggedIn', true)
             window.location.pathname = "/HomeEditor"
         }
@@ -53,24 +53,24 @@ export default class Verification extends React.Component {
             headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: localStorage.getItem('email'), code: null })
         })
-        if (response.status == 200) {
+        if (response.status === 200) {
             window.alert("Verstuurd!")
         }
     }
 
     render() {
         return (
-            <div class='verify-container'>
+            <div className='verify-container'>
                 <h1 id='title'>Verificatie</h1>
-                <div class='input-fields'>
+                <p className="verification-text">Er is een verificatiecode naar uw emailadres gestuurd.</p>
+                <div className='input-fields'>
                     <form onSubmit={this.handleSubmit}>
                         <input type="Code" name="code" placeholder="6-Cijferige Code" required onChange={this.handleChange} />
-                        <button onSubmit={this.handleSubmit}>Log in</button>
+                        <button className="confirm-button" onSubmit={this.handleSubmit}>Log in</button>
                     </form>
                 </div>
-                <br />
-                <p>Voer de 6-cijferige code in. Is de code niet verstuurd? klik dan op onderstaande knop.</p>
-                <button onClick={this.handleSubmit2}>Resend</button>
+                <p class="verification-text">Is de code niet verstuurd?</p>
+                <button className="resend-button" onClick={this.handleSubmit2}>Verstuur opnieuw</button>
             </div>
         )
     }

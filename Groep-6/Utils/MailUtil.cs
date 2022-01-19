@@ -2,14 +2,14 @@
 using System.Net;
 using System.Net.Mail;
 
-namespace Git_clone.Controllers
+namespace Groep6.Utils
 {
-    public class Mailsend
+    public class MailUtil
     {
-        public static int sendmail(string emailadr) {
-            Random rnd = new Random();
+        public static int SendMail(string emailadr) {
+            Random rnd = new();
             int vCode = rnd.Next(100000, 999999);
-            SmtpClient client = new SmtpClient() {
+            SmtpClient client = new() {
                 Host = "smtp.gmail.com",
                 Port = 587,
                 EnableSsl = true,
@@ -20,20 +20,18 @@ namespace Git_clone.Controllers
                     Password = "inf2ggroep6"
                 }
             };
-            MailAddress FromEmail = new MailAddress("starverifytotop@gmail.com", "Star Shl");
+            MailAddress senderEmail = new("starverifytotop@gmail.com", "Star Shl");
             try 
             {
-                MailAddress ToEmail = new MailAddress(emailadr);
-                MailMessage message = new MailMessage()
+                MailAddress recipientEmail = new(emailadr);
+                MailMessage message = new()
                 {
-                    From = FromEmail,
+                    From = senderEmail,
                     Subject = $"Your verification code is {vCode}",
                     Body = $"Hello, your verification code is {vCode}. Please enter this code within the next 10 minutes. This code is not re-usable."
                 };
-                message.To.Add(ToEmail);
-                Console.WriteLine("before sending");
+                message.To.Add(recipientEmail);
                 client.Send(message);
-                Console.WriteLine("SENT!");
                 return vCode;
             }
             catch(Exception ex)

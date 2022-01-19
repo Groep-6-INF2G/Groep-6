@@ -1,11 +1,10 @@
 ﻿.search-box {
     background-color: #79b9d5;
-    max-width: 32rem;
+    max-width: 86rem;
     margin-right: auto;
     margin-left: auto;
-}
-
-.search-field {
+    border-radius: 5px;
+    padding-bottom: 30px;
 }
 
 .location-container {
@@ -26,7 +25,7 @@
 }
 
 .list-box {
-    background-color: #d8d8d8;
+    background-color: transparent;
     border-radius: 8px;
     margin-right: auto;
     margin-left: auto;
@@ -34,7 +33,9 @@
 }
 
 .item {
-    box-shadow: 0px 13px 2px -13px black;
+    box-shadow: 0px 11px 6px -11px black;
+    background-color: #e0f6fd;
+    border-radius: 10px;
 }
 
 .item .item-header {
@@ -58,12 +59,14 @@
     padding-bottom: 10px;
 }
 
+.search-field {
+    margin-top: 27px;
+}
 .search-field form {
     text-align: center;
 }
 
 .search-field form button {
-    margin-top: 5px;
     margin-bottom: 15px;
     width: 6rem;
     height: 2.5rem;
@@ -71,18 +74,20 @@
     background-color: #e7334c;
     color: white;
     font-size: 20px;
-    border-radius: 20px;
+    border-radius: 5px;
     transition: 0.5s;
 }
 
 .search-field form input {
-    width: 87%;
+    width: 75%;
     height: 1.5rem;
     margin-bottom: 15px;
     border: none;
     font-size: 25px;
-    margin-right: auto;
+    padding: 6px 10px;
+    margin-right: 50px;
     margin-left: auto;
+    border-radius: 3px;
 }
 
 .leaflet-container {

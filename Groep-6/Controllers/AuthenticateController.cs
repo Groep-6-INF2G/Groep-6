@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Git_clone.Controllers
+namespace Groep6.Controllers
 {
     [Authorize(Roles = "admin")]
     [Route("api/[controller]")]

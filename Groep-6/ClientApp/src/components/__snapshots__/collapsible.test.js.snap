@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`collapsible should render correctly 1`] = `
+Array [
+  <div
+    className="collapsible"
+  >
+    <div
+      className="clickable"
+      onClick={[Function]}
+    >
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "inline-flex",
+          }
+        }
+      >
+        <h2 />
+        <img
+          alt=""
+          height="10"
+          id="dropdown"
+          src="dropdown.png"
+          style={
+            Object {
+              "marginLeft": "10px",
+            }
+          }
+          width="10"
+        />
+      </div>
+    </div>
+    <div
+      className="content-parent"
+      style={
+        Object {
+          "maxHeight": "0px",
+          "transition": "max-height 1s cubic-bezier(0, 0.74, 0.08, 1.02) 0s",
+        }
+      }
+    />
+  </div>,
+]
+`;

@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Git_clone.Models
+namespace Groep6.Models
 {
     [Table("users")]
-    public class User
+    public class UserModel
     {
         public int UserId { get; set; }
         public string Email { get; set; }
