@@ -7,7 +7,9 @@ export default class Main extends React.Component {
     constructor() {
         super()
         this.state = { isAuth: false };
+    }
 
+    componentDidMount() {
         IsAuthenticated().then((res) => {
             if (res === 200) {
                 this.setState({ isAuth: true })

@@ -21,13 +21,13 @@ export default class Login extends Component {
     
     async handleSubmit(e) {
         e.preventDefault();
-        const response = await fetch("api/login", {
+        await fetch("api/login", {
             method: "POST",
             credentials: 'include',
             headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
         }).then(response => {
-            if (response.status == 200) {
+            if (response.status === 200) {
                 localStorage.setItem('email', this.state.email)
                 window.location.pathname = "/Verification"
             }
@@ -52,13 +52,13 @@ export default class Login extends Component {
     
     render() {
         return (
-            <div class="login-container">
+            <div className="login-container">
                 <h1 id="title">Inloggen</h1>
-                <div class="input-fields">
+                <div className="input-fields">
                     <form onSubmit={this.handleSubmit}>
                         <input type="email" name="email" placeholder="E-mailadres" required onChange={this.handleChange} />
                         <input type="password" name="password" placeholder="Wachtwoord" required onChange={this.handleChange}/>
-                        <button onSubmit={this.handleSubmit}>Log in</button>
+                        <button className="confirm-button" onSubmit={this.handleSubmit}>Log in</button>
                     </form>
                 </div>
             </div>
