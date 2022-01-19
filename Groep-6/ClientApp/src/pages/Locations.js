@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import '../styles/locations.css';
 
 export default class Locations extends React.Component {
@@ -44,24 +44,24 @@ export default class Locations extends React.Component {
     }
     render() {
         return (
-            <div class="location-container">
-                <div class="search-box">
-                    <p class="title">Zoek dichtsbijzijnde locatie</p>
-                    <div class="search-field">
+            <div className="location-container">
+                <div className="search-box">
+                    <p className="title">Zoek dichtsbijzijnde locatie</p>
+                    <div className="search-field">
                         <form onSubmit={this.handleSubmit}>
                             <input type="postcode" name="postcode" placeholder="Postcode" required onChange={this.handleChange} />
                             <button onSubmit={this.handleSubmit}>Zoek</button>
                         </form>
                     </div>
                 </div>
-                <div class="list-box">
+                <div className="list-box">
                     {
                         this.state.closestLocations.map(location => (
-                            <div class="item" key={location.id}>
-                                <p class="item-header">
+                            <div className="item" key={location.id}>
+                                <p className="item-header">
                                     {location.locationname}
                                 </p>
-                                <p class="item-body">
+                                <p className="item-body">
                                     {location.street}, {location.postcode}<br />
                                     {location.city}<br />
                                     {location.openinghours}<br />

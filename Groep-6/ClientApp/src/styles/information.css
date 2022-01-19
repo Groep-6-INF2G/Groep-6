@@ -90,7 +90,7 @@ ul.paragraf{
     height: auto;
 }
 .TextNextToImage {
-    display: box;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;

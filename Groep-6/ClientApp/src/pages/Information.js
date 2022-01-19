@@ -23,24 +23,15 @@ export default class Information extends React.Component {
     }
     async componentDidMount() {
         let htmlPageData;
-        const page = await fetch("api/wysiwyg?id=2", {
+        await fetch("api/wysiwyg?id=2", {
             method: "GET",
-            headers: { 'Accept': 'apllication/json', 'Content-Type': 'application/json' },
         }).then(response => response.json())
             .then(response => {
                 htmlPageData = response
                 htmlPageData.sort((a, b) => parseFloat(a.sectionid) - parseFloat(b.sectionid));
-                console.log(htmlPageData)
-                try {
-                    this.setState({
-                        pagedata: htmlPageData
-                    });
-                    console.log(this.state.pagedata)
-                }
-                catch (e) {
-                    console.log(this)
-                    console.log(e)
-                }
+                this.setState({
+                    pagedata: htmlPageData
+                });
             }
             )
 
@@ -136,7 +127,7 @@ export default class Information extends React.Component {
                         </div>
                     </Collapsible>
 
-                <Collapsible src={urine} className="Icons" className="Icons" title="Urineonderzoek">
+                <Collapsible src={urine} className="Icons" title="Urineonderzoek">
                     <Collapsible title="Wat is het doel van het onderzoek?">
                         <div className="text">
                             <BiBody color="#79b9d5" fontSize="35px" />
@@ -182,7 +173,7 @@ export default class Information extends React.Component {
 
                 </Collapsible>
 
-                <Collapsible src={corona} className="Icons" className="Icons" title="Coronamaatregelen">
+                <Collapsible src={corona} className="Icons" title="Coronamaatregelen">
                     <div className="text">
                         <MdSocialDistance color="#79b9d5" fontSize="35px" />
                             <div dangerouslySetInnerHTML={{ __html: this.state.pagedata[18].sectiondata }}></div>

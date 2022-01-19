@@ -18,7 +18,7 @@ export default class HomePageEditor extends React.Component {
 
     async componentDidMount() {
         let htmlPageData;
-        const page = await fetch("api/wysiwyg?id=1", {
+        await fetch("api/wysiwyg?id=1", {
             method: "GET",
             headers: { 'Accept': 'apllication/json', 'Content-Type': 'application/json' },
             }
@@ -49,23 +49,22 @@ export default class HomePageEditor extends React.Component {
     render() {
         return (
             <>
-                <div class='featureList'>
-                    <div class='item'>
-                        <a>
-
+                <div className='featureList'>
+                    <div className='item'>
+                        <div className='a'>
                             <GiTestTubes color="#79b9d5" fontSize="35px" />
-                            <h2 class="title">Info</h2>
-                            <p class="description">Informatie over Bloedprikken en Urinetest</p>
-                            <p class="link">Zie informatie <BsArrowRightShort fontSize="25px" /></p>
-                        </a>
+                            <h2 className="title">Info</h2>
+                            <p className="description">Informatie over Bloedprikken en Urinetest</p>
+                            <p className="link">Zie informatie <BsArrowRightShort fontSize="25px" /></p>
+                        </div>
                     </div>
-                    <div class='item'>
-                        <a>
+                    <div className='item'>
+                        <div className='a'>
                             <MdOutlineLocationOn color="#79b9d5" fontSize="35px" />
-                            <h2 class="title">180+ Locaties</h2>
-                            <p class="description">Star-shl heeft 180+ locaties waar je kan laten Bloedprikken en Urinetesten</p>
-                            <p class="link">Zie locaties <BsArrowRightShort fontSize="25px" /></p>
-                        </a>
+                            <h2 className="title">180+ Locaties</h2>
+                            <p className="description">Star-shl heeft 180+ locaties waar je kan laten Bloedprikken en Urinetesten</p>
+                            <p className="link">Zie locaties <BsArrowRightShort fontSize="25px" /></p>
+                        </div>
                     </div>
                 </div>
                 <Editor id="HomePage" tinymceScriptSrc={'tinymce/tinymce.min.js'}

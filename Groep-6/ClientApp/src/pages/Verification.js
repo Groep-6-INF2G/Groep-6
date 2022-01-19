@@ -25,7 +25,7 @@ export default class Verification extends React.Component {
             headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: localStorage.getItem('email'), code: this.state.code })
         })
-        if (response.status == 200) {
+        if (response.status === 200) {
             localStorage.setItem('loggedIn', true)
             window.location.pathname = "/HomeEditor"
         }
@@ -53,16 +53,16 @@ export default class Verification extends React.Component {
             headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: localStorage.getItem('email'), code: null })
         })
-        if (response.status == 200) {
+        if (response.status === 200) {
             window.alert("Verstuurd!")
         }
     }
 
     render() {
         return (
-            <div class='verify-container'>
+            <div className='verify-container'>
                 <h1 id='title'>Verificatie</h1>
-                <div class='input-fields'>
+                <div className='input-fields'>
                     <form onSubmit={this.handleSubmit}>
                         <input type="Code" name="code" placeholder="6-Cijferige Code" required onChange={this.handleChange} />
                         <button onSubmit={this.handleSubmit}>Log in</button>
