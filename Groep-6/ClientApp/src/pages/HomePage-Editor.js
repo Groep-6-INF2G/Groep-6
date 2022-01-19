@@ -50,7 +50,7 @@ export default class HomePageEditor extends React.Component {
         return (
             <>
                 <div className='featureList'>
-                    <div className='item'>
+                    <div className='featureItem'>
                         <div className='a'>
                             <GiTestTubes color="#79b9d5" fontSize="35px" />
                             <h2 className="title">Info</h2>
@@ -58,7 +58,7 @@ export default class HomePageEditor extends React.Component {
                             <p className="link">Zie informatie <BsArrowRightShort fontSize="25px" /></p>
                         </div>
                     </div>
-                    <div className='item'>
+                    <div className='featureItem'>
                         <div className='a'>
                             <MdOutlineLocationOn color="#79b9d5" fontSize="35px" />
                             <h2 className="title">180+ Locaties</h2>
